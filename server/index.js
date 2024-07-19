@@ -7,8 +7,7 @@ const PORT = 8000;
 app.use(cors());
 app.use(express.json());
 
-// Replace 'YOUR_API_KEY' with your actual OpenAI Codex API key
-const OPENAI_API_KEY = 'sk-...cKa7';
+const OPENAI_API_KEY = 'YOUR_API_KEY';
 
 app.post("/compile", async (req, res) => {
     const { code, language, input } = req.body;
@@ -38,6 +37,7 @@ app.post("/compile", async (req, res) => {
         });
         res.send({ output: response.data.choices[0].text });
     } catch (error) {
+        console.error("Error during code compilation:", error.message);
         res.status(500).send({ error: "Code execution failed", details: error.message });
     }
 });

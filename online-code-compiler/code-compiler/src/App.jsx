@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Editor from "@monaco-editor/react";
 import Axios from 'axios';
 import './App.css';
-import spinner from './spinner.svg';
+import spinner from './svg-spinners--12-dots-scale-rotate.svg';
 
 function App() {
     const [userCode, setUserCode] = useState('');
