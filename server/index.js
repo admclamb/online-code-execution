@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 // Replace 'YOUR_API_KEY' with your actual OpenAI Codex API key
-const OPENAI_API_KEY = 'YOUR_API_KEY';
+const OPENAI_API_KEY = 'sk-...cKa7';
 
 app.post("/compile", async (req, res) => {
     const { code, language, input } = req.body;
