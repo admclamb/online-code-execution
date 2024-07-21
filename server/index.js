@@ -1,43 +1,44 @@
 const express = require("express");
 const cors = require("cors");
 const Axios = require("axios");
+require('dotenv').config();  // Add this line
 const app = express();
 const PORT = 8000;
 
 app.use(cors());
 app.use(express.json());
 
-// Replace 'YOUR_API_KEY' with your actual OpenAI Codex API key
-const OPENAI_API_KEY = 'YOUR_API_KEY';
+const JD_CLIENT_ID = process.env.JD_CLIENT_ID;
+const JD_CLIENT_SECRET = process.env.JD_CLIENT_SECRET;
 
 app.post("/compile", async (req, res) => {
     const { code, language, input } = req.body;
 
     const langMap = {
-        python: "python",
+        python: "python3",
         c: "c",
-        cpp: "cpp",
+        cpp: "cpp14",
         java: "java"
     };
 
     const data = {
-        prompt: `${code}\n${input}`,
-        max_tokens: 100,
-        temperature: 0,
-        top_p: 1,
-        n: 1,
-        stop: ["\n"]
+        clientId: JD_CLIENT_ID,
+        clientSecret: JD_CLIENT_SECRET,
+        script: code,
+        stdin: input,
+        language: langMap[language],
+        versionIndex: "0"
     };
 
     try {
-        const response = await Axios.post('https://api.openai.com/v1/engines/davinci-codex/completions', data, {
+        const response = await Axios.post('https://api.jdoodle.com/v1/execute', data, {
             headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${OPENAI_API_KEY}`
+                'Content-Type': 'application/json'
             }
         });
-        res.send({ output: response.data.choices[0].text });
+        res.send({ output: response.data.output });
     } catch (error) {
+        console.error("Error during code compilation:", error.message);
         res.status(500).send({ error: "Code execution failed", details: error.message });
     }
 });
