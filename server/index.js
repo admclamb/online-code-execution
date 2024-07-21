@@ -1,14 +1,15 @@
 const express = require("express");
 const cors = require("cors");
 const Axios = require("axios");
+require('dotenv').config();  // Add this line
 const app = express();
 const PORT = 8000;
 
 app.use(cors());
 app.use(express.json());
 
-const JD_CLIENT_ID = '4265ce8f2c88f6b303c2abafa62c72f8';
-const JD_CLIENT_SECRET = 'd6d9528068a2ead17267c856e49a92c0f34dc3f730c0427588fe6c052265a30e';
+const JD_CLIENT_ID = process.env.JD_CLIENT_ID;
+const JD_CLIENT_SECRET = process.env.JD_CLIENT_SECRET;
 
 app.post("/compile", async (req, res) => {
     const { code, language, input } = req.body;
