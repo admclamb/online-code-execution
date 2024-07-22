@@ -1,0 +1,12 @@
+{
+  "name": "online-code-execution",
+  "version": "1.0.0",
+  "description": "Code Execution API",
+  "main": "src/index.js",
+  "type": "module",
+  "dependencies": {
+    "express": "^4.19.2",
+    "logplease": "^1.2.15"
+  },
+  "license": "MIT"
+}

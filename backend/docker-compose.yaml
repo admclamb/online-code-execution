@@ -1,0 +1,9 @@
+version: "3.2"
+
+services:
+  api:
+    image: code-execution
+    container_name: api
+    restart: always
+    port:
+      - 2000:2000
