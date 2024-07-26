@@ -1,3 +1,4 @@
+// index.js
 const express = require("express");
 const cors = require("cors");
 const Axios = require("axios");
@@ -19,15 +20,17 @@ app.post("/compile", async (req, res) => {
 
     const data = {
         language: langMap[language],
-        version: "*", // Use the latest version available
+        version: "*",
         files: [
             {
-                name: `main.${langMap[language]}`,
+                name: `main.${language}`,
                 content: code
             }
         ],
         stdin: input
     };
+
+    console.log("Received request:", data); // Add this line
 
     try {
         const response = await Axios.post('https://emkc.org/api/v2/piston/execute', data, {
@@ -35,6 +38,7 @@ app.post("/compile", async (req, res) => {
                 'Content-Type': 'application/json'
             }
         });
+        console.log("Received response from Piston API:", response.data); // Add this line
         res.send({ output: response.data.run.output });
     } catch (error) {
         console.error("Error during code compilation:", error.message);

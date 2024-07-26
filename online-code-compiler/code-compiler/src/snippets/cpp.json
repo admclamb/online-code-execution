@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "language": "cpp",
+        "title": "Hello World",
+        "code": "// This is a simple C++ program to print 'Hello, World!'\n#include <iostream>\n\nint main() {\n    std::cout << \"Hello, World!\" << std::endl; // Print statement\n    return 0;\n}"
+    },
+    {
+        "id": 2,
+        "language": "cpp",
+        "title": "Sum of Two Numbers",
+        "code": "// This program calculates the sum of two numbers and prints the result\n#include <iostream>\n\nint main() {\n    int a = 1; // First number\n    int b = 2; // Second number\n    int sum = a + b; // Sum of the two numbers\n    std::cout << \"The sum of \" << a << \" and \" << b << \" is \" << sum << std::endl; // Print the result\n    return 0;\n}"
+    },
+    {
+        "id": 3,
+        "language": "cpp",
+        "title": "Factorial using Recursion",
+        "code": "// This function returns the factorial of a given number using recursion\n#include <iostream>\n\nint factorial(int n) {\n    if (n == 1) {\n        return 1;\n    } else {\n        return n * factorial(n - 1);\n    }\n}\n\nint main() {\n    int number = 5;\n    std::cout << \"The factorial of \" << number << \" is \" << factorial(number) << std::endl;\n    return 0;\n}"
+    }
+]

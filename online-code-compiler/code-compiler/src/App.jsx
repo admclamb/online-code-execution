@@ -1,7 +1,7 @@
 // App.jsx
 import React, { useState } from 'react';
 import Axios from 'axios';
-import SnippetLibrary from './SnippetLibrary';
+import SnippetLibrary from './snippets/SnippetLibrary';
 import './App.css';
 
 const languages = [
@@ -19,10 +19,17 @@ const App = () => {
 
     const compile = () => {
         setLoading(true);
+        console.log("Sending data to backend:", {
+            code: userCode,
+            language: userLang,
+            input: ''
+        }); // Add this line
         Axios.post('http://localhost:8000/compile', {
             code: userCode,
             language: userLang,
+            input: ''
         }).then((res) => {
+            console.log("Received response from backend:", res.data); // Add this line
             setUserOutput(res.data.output);
             setLoading(false);
         }).catch((error) => {

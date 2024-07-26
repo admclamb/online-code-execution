@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "language": "python",
+        "title": "Hello World",
+        "code": "# This is a simple Python program to print 'Hello, World!'\nprint(\"Hello, World!\")"
+    },
+    {
+        "id": 2,
+        "language": "python",
+        "title": "Sum of Two Numbers",
+        "code": "# This program calculates the sum of two numbers and prints the result\n\na = 1  # First number\nb = 2  # Second number\nsum = a + b  # Sum of the two numbers\nprint('The sum of', a, 'and', b, 'is', sum)  # Print the result"
+    },
+    {
+        "id": 3,
+        "language": "python",
+        "title": "Factorial using Recursion",
+        "code": "# This function returns the factorial of a given number using recursion\n\ndef factorial(n):\n    if n == 1:\n        return 1\n    else:\n        return n * factorial(n-1)\n\n# Example usage\nnumber = 5\nprint(f'The factorial of {number} is {factorial(number)}')"
+    }
+]
