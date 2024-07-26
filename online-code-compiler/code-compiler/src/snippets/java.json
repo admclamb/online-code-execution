@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "language": "java",
+        "title": "Hello World",
+        "code": "// This is a simple Java program to print 'Hello, World!'\npublic class Main {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World!\"); // Print statement\n    }\n}"
+    },
+    {
+        "id": 2,
+        "language": "java",
+        "title": "Sum of Two Numbers",
+        "code": "// This program calculates the sum of two numbers and prints the result\npublic class Main {\n    public static void main(String[] args) {\n        int a = 1; // First number\n        int b = 2; // Second number\n        int sum = a + b; // Sum of the two numbers\n        System.out.println(\"The sum of \" + a + \" and \" + b + \" is \" + sum); // Print the result\n    }\n}"
+    },
+    {
+        "id": 3,
+        "language": "java",
+        "title": "Factorial using Recursion",
+        "code": "// This function returns the factorial of a given number using recursion\npublic class Main {\n    public static int factorial(int n) {\n        if (n == 1) {\n            return 1;\n        } else {\n            return n * factorial(n - 1);\n        }\n    }\n\n    public static void main(String[] args) {\n        int number = 5;\n        System.out.println(\"The factorial of \" + number + \" is \" + factorial(number));\n    }\n}"
+    }
+]

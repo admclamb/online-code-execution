@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "language": "c",
+        "title": "Hello World",
+        "code": "// This is a simple C program to print 'Hello, World!'\n#include <stdio.h>\n\nint main() {\n    printf(\"Hello, World!\\n\"); // Print statement\n    return 0;\n}"
+    },
+    {
+        "id": 2,
+        "language": "c",
+        "title": "Sum of Two Numbers",
+        "code": "// This program calculates the sum of two numbers and prints the result\n#include <stdio.h>\n\nint main() {\n    int a = 1; // First number\n    int b = 2; // Second number\n    int sum = a + b; // Sum of the two numbers\n    printf(\"The sum of %d and %d is %d\\n\", a, b, sum); // Print the result\n    return 0;\n}"
+    },
+    {
+        "id": 3,
+        "language": "c",
+        "title": "Factorial using Recursion",
+        "code": "// This function returns the factorial of a given number using recursion\n#include <stdio.h>\n\nint factorial(int n) {\n    if (n == 1) {\n        return 1;\n    } else {\n        return n * factorial(n - 1);\n    }\n}\n\nint main() {\n    int number = 5;\n    printf(\"The factorial of %d is %d\\n\", number, factorial(number));\n    return 0;\n}"
+    }
+]
