@@ -1,15 +1,11 @@
 const express = require("express");
 const cors = require("cors");
 const Axios = require("axios");
-require('dotenv').config();  // Add this line
 const app = express();
 const PORT = 8000;
 
 app.use(cors());
 app.use(express.json());
-
-const JD_CLIENT_ID = process.env.JD_CLIENT_ID;
-const JD_CLIENT_SECRET = process.env.JD_CLIENT_SECRET;
 
 app.post("/compile", async (req, res) => {
     const { code, language, input } = req.body;
@@ -17,26 +13,29 @@ app.post("/compile", async (req, res) => {
     const langMap = {
         python: "python3",
         c: "c",
-        cpp: "cpp14",
+        cpp: "cpp",
         java: "java"
     };
 
     const data = {
-        clientId: JD_CLIENT_ID,
-        clientSecret: JD_CLIENT_SECRET,
-        script: code,
-        stdin: input,
         language: langMap[language],
-        versionIndex: "0"
+        version: "*", // Use the latest version available
+        files: [
+            {
+                name: `main.${langMap[language]}`,
+                content: code
+            }
+        ],
+        stdin: input
     };
 
     try {
-        const response = await Axios.post('https://api.jdoodle.com/v1/execute', data, {
+        const response = await Axios.post('https://emkc.org/api/v2/piston/execute', data, {
             headers: {
                 'Content-Type': 'application/json'
             }
         });
-        res.send({ output: response.data.output });
+        res.send({ output: response.data.run.output });
     } catch (error) {
         console.error("Error during code compilation:", error.message);
         res.status(500).send({ error: "Code execution failed", details: error.message });

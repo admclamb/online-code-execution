@@ -1,9 +1,8 @@
+// App.jsx
 import React, { useState } from 'react';
-import Editor from '@monaco-editor/react';
 import Axios from 'axios';
-import Select from 'react-select';
+import SnippetLibrary from './SnippetLibrary';
 import './App.css';
-import spinner from './spinner.svg';  // Ensure this file exists in the src folder
 
 const languages = [
     { value: 'python', label: 'Python' },
@@ -12,28 +11,17 @@ const languages = [
     { value: 'java', label: 'Java' }
 ];
 
-const themes = [
-    { value: 'vs-dark', label: 'Dark' },
-    { value: 'light', label: 'Light' }
-];
-
 const App = () => {
     const [userCode, setUserCode] = useState('');
-    const [userLang, setUserLang] = useState(languages[0]);
-    const [userTheme, setUserTheme] = useState(themes[0]);
-    const [fontSize, setFontSize] = useState(20);
-    const [userInput, setUserInput] = useState('');
+    const [userLang, setUserLang] = useState('python');
     const [userOutput, setUserOutput] = useState('');
     const [loading, setLoading] = useState(false);
-
-    const options = { fontSize };
 
     const compile = () => {
         setLoading(true);
         Axios.post('http://localhost:8000/compile', {
             code: userCode,
-            language: userLang.value,
-            input: userInput
+            language: userLang,
         }).then((res) => {
             setUserOutput(res.data.output);
             setLoading(false);
@@ -43,62 +31,39 @@ const App = () => {
         });
     };
 
-    const clearOutput = () => setUserOutput('');
-
     return (
         <div className="App">
-            <div className="navbar">
-                <h1>Online Code Compiler</h1>
-                <Select
-                    options={languages}
-                    value={userLang}
-                    onChange={setUserLang}
-                    placeholder={userLang.label}
-                />
-                <Select
-                    options={themes}
-                    value={userTheme}
-                    onChange={setUserTheme}
-                    placeholder={userTheme.label}
-                />
-                <label>Font Size</label>
-                <input
-                    type="range"
-                    min="18"
-                    max="30"
-                    value={fontSize}
-                    step="2"
-                    onChange={(e) => setFontSize(e.target.value)}
+            <h1>Online Code Compiler</h1>
+            <div className="form-group">
+                <label>Language:</label>
+                <select onChange={(e) => setUserLang(e.target.value)} value={userLang}>
+                    {languages.map((lang) => (
+                        <option key={lang.value} value={lang.value}>{lang.label}</option>
+                    ))}
+                </select>
+            </div>
+            <div className="form-group">
+                <label>Code:</label>
+                <textarea 
+                    rows="20" 
+                    value={userCode} 
+                    onChange={(e) => setUserCode(e.target.value)} 
+                    placeholder="Enter your code here"
                 />
             </div>
-            <div className="main">
-                <div className="left-container">
-                    <Editor
-                        options={options}
-                        height="calc(100vh - 50px)"
-                        width="100%"
-                        theme={userTheme.value}
-                        language={userLang.value}
-                        defaultLanguage="python"
-                        defaultValue="# Enter your code here"
-                        onChange={(value) => setUserCode(value)}
-                    />
-                    <button className="run-btn" onClick={compile}>Run</button>
-                </div>
-                <div className="right-container">
-                    <h4>Output:</h4>
-                    {loading ? (
-                        <div className="spinner-box">
-                            <img src={spinner} alt="Loading..." />
-                        </div>
-                    ) : (
-                        <div className="output-box">
-                            <pre>{userOutput}</pre>
-                            <button onClick={clearOutput} className="clear-btn">Clear</button>
-                        </div>
-                    )}
-                </div>
+            <button onClick={compile} disabled={loading}>
+                {loading ? 'Running...' : 'Run'}
+            </button>
+            <div className="output">
+                <label>Output:</label>
+                <textarea 
+                    rows="10" 
+                    value={userOutput} 
+                    readOnly 
+                    placeholder="Output will be displayed here"
+                />
             </div>
+            <SnippetLibrary setUserCode={setUserCode} setUserLang={setUserLang} />
         </div>
     );
 };
