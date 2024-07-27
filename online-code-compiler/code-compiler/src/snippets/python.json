@@ -58,5 +58,65 @@
         "language": "python",
         "title": "Swap Two Numbers",
         "code": "# This program swaps two numbers\na = 5\nb = 10\nprint(f'Before swapping: a = {a}, b = {b}')\na, b = b, a\nprint(f'After swapping: a = {a}, b = {b}')"
+    },
+    {
+        "id": 11,
+        "language": "python",
+        "title": "Check Prime Number",
+        "code": "# This program checks whether a number is prime\ndef is_prime(n):\n    if n <= 1:\n        return False\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            return False\n    return True\n\nnum = 29\nif is_prime(num):\n    print(f'{num} is a prime number')\nelse:\n    print(f'{num} is not a prime number')"
+    },
+    {
+        "id": 12,
+        "language": "python",
+        "title": "Fibonacci Sequence",
+        "code": "# This program prints the Fibonacci sequence up to a specified number of terms\ndef fibonacci(n):\n    t1, t2 = 0, 1\n    for _ in range(n):\n        print(t1, end=' ')\n        t1, t2 = t2, t1 + t2\n\nn = 10\nprint(f'First {n} terms: ')\nfibonacci(n)"
+    },
+    {
+        "id": 13,
+        "language": "python",
+        "title": "Palindrome Check",
+        "code": "# This program checks if a given string is a palindrome\nstr = input('Enter a string: ')\nreversed_str = str[::-1]\nif str == reversed_str:\n    print(f'{str} is a palindrome')\nelse:\n    print(f'{str} is not a palindrome')"
+    },
+    {
+        "id": 14,
+        "language": "python",
+        "title": "Bubble Sort",
+        "code": "# This program implements the bubble sort algorithm\ndef bubble_sort(arr):\n    n = len(arr)\n    for i in range(n - 1):\n        for j in range(n - i - 1):\n            if arr[j] > arr[j + 1]:\n                arr[j], arr[j + 1] = arr[j + 1], arr[j]\n\narr = [5, 1, 4, 2, 8]\nbubble_sort(arr)\nprint('Sorted array:')\nprint(arr)"
+    },
+    {
+        "id": 15,
+        "language": "python",
+        "title": "Convert Celsius to Fahrenheit",
+        "code": "# This program converts a temperature from Celsius to Fahrenheit\ncelsius = float(input('Enter temperature in Celsius: '))\nfahrenheit = (celsius * 9/5) + 32\nprint(f'Temperature in Fahrenheit: {fahrenheit}')"
+    },
+    {
+        "id": 16,
+        "language": "python",
+        "title": "List Comprehensions",
+        "code": "# This program demonstrates the use of list comprehensions\nsquares = [x**2 for x in range(10)]\nprint('Squares:', squares)"
+    },
+    {
+        "id": 17,
+        "language": "python",
+        "title": "Count Vowels in String",
+        "code": "# This program counts the number of vowels in a given string\nvowels = 'aeiouAEIOU'\nstr = input('Enter a string: ')\nvowel_count = sum(1 for char in str if char in vowels)\nprint(f'Number of vowels in the string: {vowel_count}')"
+    },
+    {
+        "id": 18,
+        "language": "python",
+        "title": "Merge Two Dictionaries",
+        "code": "# This program merges two dictionaries\ndict1 = {'a': 1, 'b': 2}\ndict2 = {'c': 3, 'd': 4}\nmerged_dict = {**dict1, **dict2}\nprint('Merged Dictionary:', merged_dict)"
+    },
+    {
+        "id": 19,
+        "language": "python",
+        "title": "Find GCD of Two Numbers",
+        "code": "# This program finds the GCD of two numbers using the Euclidean algorithm\ndef gcd(a, b):\n    while b:\n        a, b = b, a % b\n    return a\n\nnum1 = int(input('Enter first number: '))\nnum2 = int(input('Enter second number: '))\nprint(f'The GCD of {num1} and {num2} is {gcd(num1, num2)}')"
+    },
+    {
+        "id": 20,
+        "language": "python",
+        "title": "Lambda Functions",
+        "code": "# This program demonstrates the use of lambda functions\nadd = lambda x, y: x + y\nprint('Sum:', add(5, 3))"
     }
 ]
