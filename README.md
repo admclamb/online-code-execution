@@ -11,6 +11,24 @@ This project is an online code compiler built using React.js for the frontend an
 - **Security**: Implements rate limiting, enhanced CORS policy, and uses Helmet.js for security headers.
 - **Real-Time Output**: Displays the output of the executed code in real-time.
 
+## Libraries and Modules Used
+
+### Backend
+
+- **express**: Fast, unopinionated, minimalist web framework for Node.js
+- **cors**: Middleware to enable Cross-Origin Resource Sharing
+- **helmet**: Middleware to secure Express apps by setting various HTTP headers
+- **axios**: Promise-based HTTP client for the browser and Node.js
+- **express-rate-limit**: Basic rate-limiting middleware for Express
+
+### Frontend
+
+- **react**: A JavaScript library for building user interfaces
+- **@mui/material**: Material-UI, a popular React UI framework
+- **axios**: Promise-based HTTP client for the browser and Node.js
+- **react-dom**: This package serves as the entry point to the DOM and server renderers for React
+- **vite**: Next Generation Frontend Tooling
+
 ## Prerequisites
 
 - Node.js and npm installed
