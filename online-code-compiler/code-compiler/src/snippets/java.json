@@ -3,18 +3,60 @@
         "id": 1,
         "language": "java",
         "title": "Hello World",
-        "code": "// This is a simple Java program to print 'Hello, World!'\npublic class Main {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World!\"); // Print statement\n    }\n}"
+        "code": "// This is a simple Java program to print 'Hello, World!'\npublic class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World!\"); // Print statement\n    }\n}"
     },
     {
         "id": 2,
         "language": "java",
         "title": "Sum of Two Numbers",
-        "code": "// This program calculates the sum of two numbers and prints the result\npublic class Main {\n    public static void main(String[] args) {\n        int a = 1; // First number\n        int b = 2; // Second number\n        int sum = a + b; // Sum of the two numbers\n        System.out.println(\"The sum of \" + a + \" and \" + b + \" is \" + sum); // Print the result\n    }\n}"
+        "code": "// This program calculates the sum of two numbers and prints the result\npublic class Sum {\n    public static void main(String[] args) {\n        int a = 1; // First number\n        int b = 2; // Second number\n        int sum = a + b; // Sum of the two numbers\n        System.out.println(\"The sum of \" + a + \" and \" + b + \" is \" + sum); // Print the result\n    }\n}"
     },
     {
         "id": 3,
         "language": "java",
         "title": "Factorial using Recursion",
-        "code": "// This function returns the factorial of a given number using recursion\npublic class Main {\n    public static int factorial(int n) {\n        if (n == 1) {\n            return 1;\n        } else {\n            return n * factorial(n - 1);\n        }\n    }\n\n    public static void main(String[] args) {\n        int number = 5;\n        System.out.println(\"The factorial of \" + number + \" is \" + factorial(number));\n    }\n}"
+        "code": "// This function returns the factorial of a given number using recursion\npublic class Factorial {\n    public static int factorial(int n) {\n        if (n == 1) {\n            return 1;\n        } else {\n            return n * factorial(n - 1);\n        }\n    }\n\n    public static void main(String[] args) {\n        int number = 5;\n        System.out.println(\"The factorial of \" + number + \" is \" + factorial(number));\n    }\n}"
+    },
+    {
+        "id": 4,
+        "language": "java",
+        "title": "Average of Three Numbers",
+        "code": "// This program calculates the average of three numbers\npublic class Average {\n    public static void main(String[] args) {\n        float num1 = 5.5f, num2 = 10.5f, num3 = 20.0f;\n        float average = (num1 + num2 + num3) / 3;\n        System.out.println(\"The average of \" + num1 + \", \" + num2 + \", and \" + num3 + \" is \" + average);\n    }\n}"
+    },
+    {
+        "id": 5,
+        "language": "java",
+        "title": "Check Even or Odd",
+        "code": "// This program checks whether a number is even or odd\npublic class EvenOdd {\n    public static void main(String[] args) {\n        int num = 7;\n        if (num % 2 == 0) {\n            System.out.println(num + \" is even\");\n        } else {\n            System.out.println(num + \" is odd\");\n        }\n    }\n}"
+    },
+    {
+        "id": 6,
+        "language": "java",
+        "title": "Simple Calculator",
+        "code": "// This program implements a simple calculator\nimport java.util.Scanner;\n\npublic class Calculator {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        System.out.print(\"Enter an operator (+, -, *, /): \");\n        char operator = scanner.next().charAt(0);\n        System.out.print(\"Enter two operands: \");\n        double num1 = scanner.nextDouble();\n        double num2 = scanner.nextDouble();\n\n        switch (operator) {\n            case '+':\n                System.out.println(num1 + \" + \" + num2 + \" = \" + (num1 + num2));\n                break;\n            case '-':\n                System.out.println(num1 + \" - \" + num2 + \" = \" + (num1 - num2));\n                break;\n            case '*':\n                System.out.println(num1 + \" * \" + num2 + \" = \" + (num1 * num2));\n                break;\n            case '/':\n                if (num2 != 0)\n                    System.out.println(num1 + \" / \" + num2 + \" = \" + (num1 / num2));\n                else\n                    System.out.println(\"Division by zero is not allowed.\");\n                break;\n            default:\n                System.out.println(\"Invalid operator.\");\n                break;\n        }\n        scanner.close();\n    }\n}"
+    },
+    {
+        "id": 7,
+        "language": "java",
+        "title": "Array Initialization and Display",
+        "code": "// This program initializes an array and displays its elements\npublic class ArrayDisplay {\n    public static void main(String[] args) {\n        int[] arr = {1, 2, 3, 4, 5};\n        for (int i = 0; i < arr.length; i++) {\n            System.out.println(\"Element at index \" + i + \": \" + arr[i]);\n        }\n    }\n}"
+    },
+    {
+        "id": 8,
+        "language": "java",
+        "title": "Reverse a String",
+        "code": "// This program reverses a given string\nimport java.util.Scanner;\n\npublic class ReverseString {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        System.out.print(\"Enter a string: \");\n        String str = scanner.nextLine();\n        String reversedStr = new StringBuilder(str).reverse().toString();\n        System.out.println(\"Reversed string: \" + reversedStr);\n        scanner.close();\n    }\n}"
+    },
+    {
+        "id": 9,
+        "language": "java",
+        "title": "Find Largest Element in Array",
+        "code": "// This program finds the largest element in an array\npublic class LargestElement {\n    public static void main(String[] args) {\n        int[] arr = {10, 20, 30, 40, 50};\n        int max = arr[0];\n        for (int i = 1; i < arr.length; i++) {\n            if (arr[i] > max) {\n                max = arr[i];\n            }\n        }\n        System.out.println(\"The largest element in the array is \" + max);\n    }\n}"
+    },
+    {
+        "id": 10,
+        "language": "java",
+        "title": "Swap Two Numbers",
+        "code": "// This program swaps two numbers using a temporary variable\npublic class SwapNumbers {\n    public static void main(String[] args) {\n        int a = 5, b = 10, temp;\n        System.out.println(\"Before swapping: a = \" + a + \", b = \" + b);\n        temp = a;\n        a = b;\n        b = temp;\n        System.out.println(\"After swapping: a = \" + a + \", b = \" + b);\n    }\n}"
     }
 ]
