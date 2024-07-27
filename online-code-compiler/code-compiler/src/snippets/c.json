@@ -16,5 +16,47 @@
         "language": "c",
         "title": "Factorial using Recursion",
         "code": "// This function returns the factorial of a given number using recursion\n#include <stdio.h>\n\nint factorial(int n) {\n    if (n == 1) {\n        return 1;\n    } else {\n        return n * factorial(n - 1);\n    }\n}\n\nint main() {\n    int number = 5;\n    printf(\"The factorial of %d is %d\\n\", number, factorial(number));\n    return 0;\n}"
+    },
+    {
+        "id": 4,
+        "language": "c",
+        "title": "Average of Three Numbers",
+        "code": "// This program calculates the average of three numbers\n#include <stdio.h>\n\nint main() {\n    float num1 = 5.5, num2 = 10.5, num3 = 20.0;\n    float average = (num1 + num2 + num3) / 3;\n    printf(\"The average of %.2f, %.2f, and %.2f is %.2f\\n\", num1, num2, num3, average);\n    return 0;\n}"
+    },
+    {
+        "id": 5,
+        "language": "c",
+        "title": "Check Even or Odd",
+        "code": "// This program checks whether a number is even or odd\n#include <stdio.h>\n\nint main() {\n    int num = 7;\n    if (num % 2 == 0) {\n        printf(\"%d is even\\n\", num);\n    } else {\n        printf(\"%d is odd\\n\", num);\n    }\n    return 0;\n}"
+    },
+    {
+        "id": 6,
+        "language": "c",
+        "title": "Simple Calculator",
+        "code": "// This program implements a simple calculator\n#include <stdio.h>\n\nint main() {\n    char operator;\n    double num1, num2;\n    printf(\"Enter an operator (+, -, *, /): \");\n    scanf(\" %c\", &operator);\n    printf(\"Enter two operands: \");\n    scanf(\"%lf %lf\", &num1, &num2);\n\n    switch(operator) {\n        case '+':\n            printf(\"%.1lf + %.1lf = %.1lf\\n\", num1, num2, num1 + num2);\n            break;\n        case '-':\n            printf(\"%.1lf - %.1lf = %.1lf\\n\", num1, num2, num1 - num2);\n            break;\n        case '*':\n            printf(\"%.1lf * %.1lf = %.1lf\\n\", num1, num2, num1 * num2);\n            break;\n        case '/':\n            if (num2 != 0.0)\n                printf(\"%.1lf / %.1lf = %.1lf\\n\", num1, num2, num1 / num2);\n            else\n                printf(\"Division by zero is not allowed.\\n\");\n            break;\n        default:\n            printf(\"Invalid operator.\\n\");\n            break;\n    }\n\n    return 0;\n}"
+    },
+    {
+        "id": 7,
+        "language": "c",
+        "title": "Array Initialization and Display",
+        "code": "// This program initializes an array and displays its elements\n#include <stdio.h>\n\nint main() {\n    int arr[5] = {1, 2, 3, 4, 5};\n    for(int i = 0; i < 5; i++) {\n        printf(\"Element at index %d: %d\\n\", i, arr[i]);\n    }\n    return 0;\n}"
+    },
+    {
+        "id": 8,
+        "language": "c",
+        "title": "Reverse a String",
+        "code": "// This program reverses a given string\n#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char str[100];\n    printf(\"Enter a string: \");\n    gets(str);\n    int len = strlen(str);\n    for(int i = 0; i < len / 2; i++) {\n        char temp = str[i];\n        str[i] = str[len - i - 1];\n        str[len - i - 1] = temp;\n    }\n    printf(\"Reversed string: %s\\n\", str);\n    return 0;\n}"
+    },
+    {
+        "id": 9,
+        "language": "c",
+        "title": "Find Largest Element in Array",
+        "code": "// This program finds the largest element in an array\n#include <stdio.h>\n\nint main() {\n    int arr[] = {10, 20, 30, 40, 50};\n    int max = arr[0];\n    for(int i = 1; i < 5; i++) {\n        if(arr[i] > max) {\n            max = arr[i];\n        }\n    }\n    printf(\"The largest element in the array is %d\\n\", max);\n    return 0;\n}"
+    },
+    {
+        "id": 10,
+        "language": "c",
+        "title": "Swap Two Numbers",
+        "code": "// This program swaps two numbers using a temporary variable\n#include <stdio.h>\n\nint main() {\n    int a = 5, b = 10, temp;\n    printf(\"Before swapping: a = %d, b = %d\\n\", a, b);\n    temp = a;\n    a = b;\n    b = temp;\n    printf(\"After swapping: a = %d, b = %d\\n\", a, b);\n    return 0;\n}"
     }
 ]

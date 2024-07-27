@@ -3,18 +3,60 @@
         "id": 1,
         "language": "python",
         "title": "Hello World",
-        "code": "# This is a simple Python program to print 'Hello, World!'\nprint(\"Hello, World!\")"
+        "code": "# This is a simple Python program to print 'Hello, World!'\nprint('Hello, World!')"
     },
     {
         "id": 2,
         "language": "python",
         "title": "Sum of Two Numbers",
-        "code": "# This program calculates the sum of two numbers and prints the result\n\na = 1  # First number\nb = 2  # Second number\nsum = a + b  # Sum of the two numbers\nprint('The sum of', a, 'and', b, 'is', sum)  # Print the result"
+        "code": "# This program calculates the sum of two numbers and prints the result\na = 1 # First number\nb = 2 # Second number\nsum = a + b # Sum of the two numbers\nprint(f'The sum of {a} and {b} is {sum}')"
     },
     {
         "id": 3,
         "language": "python",
         "title": "Factorial using Recursion",
-        "code": "# This function returns the factorial of a given number using recursion\n\ndef factorial(n):\n    if n == 1:\n        return 1\n    else:\n        return n * factorial(n-1)\n\n# Example usage\nnumber = 5\nprint(f'The factorial of {number} is {factorial(number)}')"
+        "code": "# This function returns the factorial of a given number using recursion\ndef factorial(n):\n    if n == 1:\n        return 1\n    else:\n        return n * factorial(n - 1)\n\nnumber = 5\nprint(f'The factorial of {number} is {factorial(number)}')"
+    },
+    {
+        "id": 4,
+        "language": "python",
+        "title": "Average of Three Numbers",
+        "code": "# This program calculates the average of three numbers\nnum1 = 5.5\nnum2 = 10.5\nnum3 = 20.0\naverage = (num1 + num2 + num3) / 3\nprint(f'The average of {num1}, {num2}, and {num3} is {average}')"
+    },
+    {
+        "id": 5,
+        "language": "python",
+        "title": "Check Even or Odd",
+        "code": "# This program checks whether a number is even or odd\nnum = 7\nif num % 2 == 0:\n    print(f'{num} is even')\nelse:\n    print(f'{num} is odd')"
+    },
+    {
+        "id": 6,
+        "language": "python",
+        "title": "Simple Calculator",
+        "code": "# This program implements a simple calculator\noperator = input('Enter an operator (+, -, *, /): ')\nnum1 = float(input('Enter first operand: '))\nnum2 = float(input('Enter second operand: '))\n\nif operator == '+':\n    print(f'{num1} + {num2} = {num1 + num2}')\nelif operator == '-':\n    print(f'{num1} - {num2} = {num1 - num2}')\nelif operator == '*':\n    print(f'{num1} * {num2} = {num1 * num2}')\nelif operator == '/':\n    if num2 != 0:\n        print(f'{num1} / {num2} = {num1 / num2}')\n    else:\n        print('Division by zero is not allowed.')\nelse:\n    print('Invalid operator.')"
+    },
+    {
+        "id": 7,
+        "language": "python",
+        "title": "Array Initialization and Display",
+        "code": "# This program initializes a list and displays its elements\narr = [1, 2, 3, 4, 5]\nfor i in range(len(arr)):\n    print(f'Element at index {i}: {arr[i]}')"
+    },
+    {
+        "id": 8,
+        "language": "python",
+        "title": "Reverse a String",
+        "code": "# This program reverses a given string\nstr = input('Enter a string: ')\nreversed_str = str[::-1]\nprint(f'Reversed string: {reversed_str}')"
+    },
+    {
+        "id": 9,
+        "language": "python",
+        "title": "Find Largest Element in List",
+        "code": "# This program finds the largest element in a list\narr = [10, 20, 30, 40, 50]\nmax_element = max(arr)\nprint(f'The largest element in the list is {max_element}')"
+    },
+    {
+        "id": 10,
+        "language": "python",
+        "title": "Swap Two Numbers",
+        "code": "# This program swaps two numbers\na = 5\nb = 10\nprint(f'Before swapping: a = {a}, b = {b}')\na, b = b, a\nprint(f'After swapping: a = {a}, b = {b}')"
     }
 ]
