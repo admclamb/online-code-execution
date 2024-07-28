@@ -1,14 +1,47 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
+const { body, validationResult } = require('express-validator');
+const winston = require('winston');
 
 const app = express();
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
+const PISTON_API_URL = process.env.PISTON_API_URL;
+
+// Configure Winston logger
+const logger = winston.createLogger({
+    level: 'info',
+    format: winston.format.combine(
+        winston.format.timestamp(),
+        winston.format.json()
+    ),
+    transports: [
+        new winston.transports.File({ filename: 'error.log', level: 'error' }),
+        new winston.transports.File({ filename: 'combined.log' })
+    ]
+});
+
+if (process.env.NODE_ENV !== 'production') {
+    logger.add(new winston.transports.Console({
+        format: winston.format.simple()
+    }));
+}
 
 // Apply security headers using Helmet.js
-app.use(helmet());
+app.use(helmet({
+    contentSecurityPolicy: {
+        directives: {
+            defaultSrc: ["'self'"],
+            scriptSrc: ["'self'", "'unsafe-inline'"],
+            styleSrc: ["'self'", "'unsafe-inline'"],
+            imgSrc: ["'self'", "data:"]
+        }
+    },
+    referrerPolicy: { policy: 'no-referrer' }
+}));
 
 // Rate limiter middleware
 const limiter = rateLimit({
@@ -29,7 +62,16 @@ app.use(cors(corsOptions));
 
 app.use(express.json());
 
-app.post('/compile', async (req, res) => {
+app.post('/compile', [
+    body('code').isString().notEmpty(),
+    body('language').isString().notEmpty().isIn(['python', 'c', 'cpp', 'java']),
+    body('input').optional().isString()
+], async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    }
+
     const { code, language, input } = req.body;
 
     const langMap = {
@@ -39,10 +81,6 @@ app.post('/compile', async (req, res) => {
         java: 'java'
     };
 
-    if (!langMap[language]) {
-        return res.status(400).json({ error: 'Unsupported language' });
-    }
-
     const data = {
         language: langMap[language],
         version: '*',
@@ -51,12 +89,12 @@ app.post('/compile', async (req, res) => {
     };
 
     try {
-        const response = await axios.post('https://emkc.org/api/v2/piston/execute', data, {
+        const response = await axios.post(PISTON_API_URL, data, {
             headers: { 'Content-Type': 'application/json' }
         });
         res.send({ output: response.data.run.output });
     } catch (error) {
-        console.error('Error during code compilation:', error.message);
+        logger.error('Error during code compilation:', { message: error.message, stack: error.stack });
         res.status(500).send({ error: 'Code execution failed', details: error.message });
     }
 });
