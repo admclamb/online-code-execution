@@ -7,7 +7,7 @@ const rateLimit = require('express-rate-limit');
 const app = express();
 const PORT = 8000;
 
-// Apply security headers
+// Apply security headers using Helmet.js
 app.use(helmet());
 
 // Rate limiter middleware
@@ -22,7 +22,8 @@ app.use(limiter);
 const corsOptions = {
     origin: 'http://localhost:5173', // restrict to your frontend's origin
     methods: 'GET,POST',
-    allowedHeaders: 'Content-Type,Authorization'
+    allowedHeaders: 'Content-Type,Authorization',
+    optionsSuccessStatus: 200 // some legacy browsers choke on 204
 };
 app.use(cors(corsOptions));
 
