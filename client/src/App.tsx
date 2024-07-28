@@ -1,11 +1,12 @@
-import ThemeToggle from "./features/theme/theme-toggle";
 import { ThemeProvider } from "./features/theme/theme.provider";
+import Layout from "./layout/layout";
 
 const App = () => {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <h1>TESTING</h1>
-      <ThemeToggle />
+      <Layout>
+        <h1>TESTING</h1>
+      </Layout>
     </ThemeProvider>
   );
 };
