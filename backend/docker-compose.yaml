@@ -2,8 +2,9 @@ version: "3.2"
 
 services:
   api:
-    image: code-execution
+    build:
+      context: ./api
     container_name: api
     restart: always
-    port:
+    ports:
       - 2000:2000
