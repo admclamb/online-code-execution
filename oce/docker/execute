@@ -1,0 +1,69 @@
+#!/usr/bin/env bash
+
+#docker run --rm -it piston /usr/bin/python -V
+#docker run --rm -it piston /usr/bin/python3 -V
+#docker run --rm -it piston /usr/bin/ruby --version
+#docker run --rm -it piston /usr/bin/nodejs --version
+
+dir="$( cd "$( dirname "$0" )" && pwd )"
+
+if [ -z "$1" ]; then
+    echo "invalid args"
+    exit
+fi
+if [ -z "$2" ]; then
+    echo "invalid args"
+    exit
+fi
+
+lang=$1
+filepath=$(realpath $2)
+file=$(basename $2)
+
+bin=
+case "$lang" in
+"python2")
+    bin=executor_python2
+    ;;
+"python" | "python3")
+    bin=executor_python3
+    ;;
+"ruby")
+    bin=executor_ruby
+    ;;
+"javascript" | "js" | "node")
+    bin=executor_node
+    ;;
+"c")
+    bin=executor_c
+    ;;
+"cpp" | "c++")
+    bin=executor_cpp
+    ;;
+"go")
+    bin=executor_go
+    ;;
+*)
+    echo "invalid language"
+    exit
+esac
+
+docker run \
+    -m 64m \
+    --network none \
+    --cpus=".5" \
+    --rm \
+    -v $filepath:/$file:ro \
+    -v $dir/executors/python2:/executor_python2:ro \
+    -v $dir/executors/python3:/executor_python3:ro \
+    -v $dir/executors/ruby:/executor_ruby:ro \
+    -v $dir/executors/node:/executor_node:ro \
+    -v $dir/executors/c:/executor_c:ro \
+    -v $dir/executors/cpp:/executor_cpp:ro \
+    -v $dir/executors/go:/executor_go:ro \
+    piston \
+    runuser \
+        -l runner \
+        -c "/$bin /$file $file 2>&1"
+
+rm -f /tmp/$file
