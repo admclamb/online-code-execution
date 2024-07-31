@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-#docker run --rm -it piston /usr/bin/python -V
-#docker run --rm -it piston /usr/bin/python3 -V
-#docker run --rm -it piston /usr/bin/ruby --version
-#docker run --rm -it piston /usr/bin/nodejs --version
+#docker run --rm -it runner /usr/bin/python -V
+#docker run --rm -it runner /usr/bin/python3 -V
+#docker run --rm -it runner /usr/bin/ruby --version
+#docker run --rm -it runner /usr/bin/nodejs --version
 
 dir="$( cd "$( dirname "$0" )" && pwd )"
 
@@ -61,7 +61,7 @@ docker run \
     -v $dir/executors/c:/executor_c:ro \
     -v $dir/executors/cpp:/executor_cpp:ro \
     -v $dir/executors/go:/executor_go:ro \
-    piston \
+    runner \
     runuser \
         -l runner \
         -c "/$bin /$file $file 2>&1"

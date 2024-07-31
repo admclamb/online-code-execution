@@ -32,7 +32,7 @@ app.post("/execute", (req, res) => {
   if (!whitelist.includes(language)) {
     return res.json({
       code: "unsupported_language",
-      message: `${language} is not supported by Piston`,
+      message: `${language} is not supported`,
     });
   }
 
@@ -69,8 +69,9 @@ function getExtension(language) {
 
 // Function to execute the code
 function execCode(language, filename, res) {
-  const command = `../../docker/execute ${language} ${filename}`;
+  const command = `../docker/execute ${language} ${filename}`;
   exec(command, (error, stdout, stderr) => {
+    console.log(stderr);
     const output = stdout || stderr;
     const ran = !error;
 

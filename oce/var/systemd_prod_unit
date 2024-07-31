@@ -1,12 +1,12 @@
 [Unit]
-Description=Piston
+Description=Runner
 
 [Service]
 Type=simple
 User=root
 Environment=PATH=/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
-WorkingDirectory=/root/piston/api
-ExecStart=/root/piston/api/start
+WorkingDirectory=/root/runner/api
+ExecStart=/root/runner/api/start
 Restart=on-failure
 
 [Install]
