@@ -1,0 +1,13 @@
+[Unit]
+Description=Runner
+
+[Service]
+Type=simple
+User=root
+Environment=PATH=/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
+WorkingDirectory=/root/runner/api
+ExecStart=/root/runner/api/start
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
