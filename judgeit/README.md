@@ -9,6 +9,10 @@ Judgeit is an online code execution system built to run untrusted and possibly m
 - `cd judgeit/docker`
 - `./build`
 
+#### Available Languages
+
+Currently the supported languages are: `python2`, `python3`, `ruby`, and `javascript`
+
 #### Execute Endpoint
 
 `POST http://localhost:3000/execute`
