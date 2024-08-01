@@ -33,7 +33,7 @@
         "id": 6,
         "language": "java",
         "title": "Simple Calculator",
-        "code": "// This program implements a simple calculator\nimport java.util.Scanner;\n\npublic class Calculator {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        System.out.print(\"Enter an operator (+, -, *, /): \");\n        char operator = scanner.next().charAt(0);\n        System.out.print(\"Enter two operands: \");\n        double num1 = scanner.nextDouble();\n        double num2 = scanner.nextDouble();\n\n        switch (operator) {\n            case '+':\n                System.out.println(num1 + \" + \" + num2 + \" = \" + (num1 + num2));\n                break;\n            case '-':\n                System.out.println(num1 + \" - \" + num2 + \" = \" + (num1 - num2));\n                break;\n            case '*':\n                System.out.println(num1 + \" * \" + num2 + \" = \" + (num1 * num2));\n                break;\n            case '/':\n                if (num2 != 0)\n                    System.out.println(num1 + \" / \" + num2 + \" = \" + (num1 / num2));\n                else\n                    System.out.println(\"Division by zero is not allowed.\");\n                break;\n            default:\n                System.out.println(\"Invalid operator.\");\n                break;\n        }\n        scanner.close();\n    }\n}"
+        "code": "// This program implements a simple calculator\npublic class Calculator {\n    public static void main(String[] args) {\n        char operator = '+';\n        double num1 = 10;\n        double num2 = 5;\n\n        switch (operator) {\n            case '+':\n                System.out.println(num1 + \" + \" + num2 + \" = \" + (num1 + num2));\n                break;\n            case '-':\n                System.out.println(num1 + \" - \" + num2 + \" = \" + (num1 - num2));\n                break;\n            case '*':\n                System.out.println(num1 + \" * \" + num2 + \" = \" + (num1 * num2));\n                break;\n            case '/':\n                if (num2 != 0)\n                    System.out.println(num1 + \" / \" + num2 + \" = \" + (num1 / num2));\n                else\n                    System.out.println(\"Division by zero is not allowed.\");\n                break;\n            default:\n                System.out.println(\"Invalid operator.\");\n                break;\n        }\n    }\n}"
     },
     {
         "id": 7,
@@ -45,7 +45,7 @@
         "id": 8,
         "language": "java",
         "title": "Reverse a String",
-        "code": "// This program reverses a given string\nimport java.util.Scanner;\n\npublic class ReverseString {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        System.out.print(\"Enter a string: \");\n        String str = scanner.nextLine();\n        String reversedStr = new StringBuilder(str).reverse().toString();\n        System.out.println(\"Reversed string: \" + reversedStr);\n        scanner.close();\n    }\n}"
+        "code": "// This program reverses a given string\npublic class ReverseString {\n    public static void main(String[] args) {\n        String str = \"Hello World\";\n        String reversedStr = new StringBuilder(str).reverse().toString();\n        System.out.println(\"Reversed string: \" + reversedStr);\n    }\n}"
     },
     {
         "id": 9,
@@ -75,7 +75,7 @@
         "id": 13,
         "language": "java",
         "title": "Palindrome Check",
-        "code": "// This program checks if a given string is a palindrome\nimport java.util.Scanner;\n\npublic class PalindromeCheck {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        System.out.print(\"Enter a string: \");\n        String str = scanner.nextLine();\n        String reversedStr = new StringBuilder(str).reverse().toString();\n        if (str.equals(reversedStr)) {\n            System.out.println(str + \" is a palindrome\");\n        } else {\n            System.out.println(str + \" is not a palindrome\");\n        }\n        scanner.close();\n    }\n}"
+        "code": "// This program checks if a given string is a palindrome\npublic class PalindromeCheck {\n    public static void main(String[] args) {\n        String str = \"radar\";\n        String reversedStr = new StringBuilder(str).reverse().toString();\n        if (str.equals(reversedStr)) {\n            System.out.println(str + \" is a palindrome\");\n        } else {\n            System.out.println(str + \" is not a palindrome\");\n        }\n    }\n}"
     },
     {
         "id": 14,
@@ -87,6 +87,6 @@
         "id": 15,
         "language": "java",
         "title": "Convert Celsius to Fahrenheit",
-        "code": "// This program converts a temperature from Celsius to Fahrenheit\nimport java.util.Scanner;\n\npublic class TemperatureConversion {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        System.out.print(\"Enter temperature in Celsius: \");\n        float celsius = scanner.nextFloat();\n        float fahrenheit = (celsius * 9/5) + 32;\n        System.out.println(\"Temperature in Fahrenheit: \" + fahrenheit);\n        scanner.close();\n    }\n}"
+        "code": "// This program converts a temperature from Celsius to Fahrenheit\npublic class TemperatureConversion {\n    public static void main(String[] args) {\n        float celsius = 37.0f;\n        float fahrenheit = (celsius * 9/5) + 32;\n        System.out.println(\"Temperature in Fahrenheit: \" + fahrenheit);\n    }\n}"
     }
 ]

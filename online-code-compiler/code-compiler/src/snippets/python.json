@@ -33,7 +33,7 @@
         "id": 6,
         "language": "python",
         "title": "Simple Calculator",
-        "code": "# This program implements a simple calculator\noperator = input('Enter an operator (+, -, *, /): ')\nnum1 = float(input('Enter first operand: '))\nnum2 = float(input('Enter second operand: '))\n\nif operator == '+':\n    print(f'{num1} + {num2} = {num1 + num2}')\nelif operator == '-':\n    print(f'{num1} - {num2} = {num1 - num2}')\nelif operator == '*':\n    print(f'{num1} * {num2} = {num1 * num2}')\nelif operator == '/':\n    if num2 != 0:\n        print(f'{num1} / {num2} = {num1 / num2}')\n    else:\n        print('Division by zero is not allowed.')\nelse:\n    print('Invalid operator.')"
+        "code": "# This program implements a simple calculator\noperator = '+'\nnum1 = 5.0\nnum2 = 3.0\n\nif operator == '+':\n    print(f'{num1} + {num2} = {num1 + num2}')\nelif operator == '-':\n    print(f'{num1} - {num2} = {num1 - num2}')\nelif operator == '*':\n    print(f'{num1} * {num2} = {num1 * num2}')\nelif operator == '/':\n    if num2 != 0:\n        print(f'{num1} / {num2} = {num1 / num2}')\n    else:\n        print('Division by zero is not allowed.')\nelse:\n    print('Invalid operator.')"
     },
     {
         "id": 7,
@@ -45,7 +45,7 @@
         "id": 8,
         "language": "python",
         "title": "Reverse a String",
-        "code": "# This program reverses a given string\nstr = input('Enter a string: ')\nreversed_str = str[::-1]\nprint(f'Reversed string: {reversed_str}')"
+        "code": "# This program reverses a given string\nstr = 'Hello World'\nreversed_str = str[::-1]\nprint(f'Reversed string: {reversed_str}')"
     },
     {
         "id": 9,
@@ -75,7 +75,7 @@
         "id": 13,
         "language": "python",
         "title": "Palindrome Check",
-        "code": "# This program checks if a given string is a palindrome\nstr = input('Enter a string: ')\nreversed_str = str[::-1]\nif str == reversed_str:\n    print(f'{str} is a palindrome')\nelse:\n    print(f'{str} is not a palindrome')"
+        "code": "# This program checks if a given string is a palindrome\nstr = 'madam'\nreversed_str = str[::-1]\nif str == reversed_str:\n    print(f'{str} is a palindrome')\nelse:\n    print(f'{str} is not a palindrome')"
     },
     {
         "id": 14,
@@ -87,7 +87,7 @@
         "id": 15,
         "language": "python",
         "title": "Convert Celsius to Fahrenheit",
-        "code": "# This program converts a temperature from Celsius to Fahrenheit\ncelsius = float(input('Enter temperature in Celsius: '))\nfahrenheit = (celsius * 9/5) + 32\nprint(f'Temperature in Fahrenheit: {fahrenheit}')"
+        "code": "# This program converts a temperature from Celsius to Fahrenheit\ncelsius = 25.0\nfahrenheit = (celsius * 9/5) + 32\nprint(f'Temperature in Fahrenheit: {fahrenheit}')"
     },
     {
         "id": 16,
@@ -99,7 +99,7 @@
         "id": 17,
         "language": "python",
         "title": "Count Vowels in String",
-        "code": "# This program counts the number of vowels in a given string\nvowels = 'aeiouAEIOU'\nstr = input('Enter a string: ')\nvowel_count = sum(1 for char in str if char in vowels)\nprint(f'Number of vowels in the string: {vowel_count}')"
+        "code": "# This program counts the number of vowels in a given string\nvowels = 'aeiouAEIOU'\nstr = 'Hello World'\nvowel_count = sum(1 for char in str if char in vowels)\nprint(f'Number of vowels in the string: {vowel_count}')"
     },
     {
         "id": 18,
@@ -111,7 +111,7 @@
         "id": 19,
         "language": "python",
         "title": "Find GCD of Two Numbers",
-        "code": "# This program finds the GCD of two numbers using the Euclidean algorithm\ndef gcd(a, b):\n    while b:\n        a, b = b, a % b\n    return a\n\nnum1 = int(input('Enter first number: '))\nnum2 = int(input('Enter second number: '))\nprint(f'The GCD of {num1} and {num2} is {gcd(num1, num2)}')"
+        "code": "# This program finds the GCD of two numbers using the Euclidean algorithm\ndef gcd(a, b):\n    while b:\n        a, b = b, a % b\n    return a\n\nnum1 = 54\nnum2 = 24\nprint(f'The GCD of {num1} and {num2} is {gcd(num1, num2)}')"
     },
     {
         "id": 20,
