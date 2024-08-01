@@ -3,60 +3,90 @@
         "id": 1,
         "language": "cpp",
         "title": "Hello World",
-        "code": "// This is a simple C++ program to print 'Hello, World!'\n#include <iostream>\n\nint main() {\n    std::cout << \"Hello, World!\" << std::endl; // Print statement\n    return 0;\n}"
+        "code": "// This is a simple C++ program to print 'Hello, World!'\n#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << \"Hello, World!\" << endl; // Print statement\n    return 0;\n}"
     },
     {
         "id": 2,
         "language": "cpp",
         "title": "Sum of Two Numbers",
-        "code": "// This program calculates the sum of two numbers and prints the result\n#include <iostream>\n\nint main() {\n    int a = 1; // First number\n    int b = 2; // Second number\n    int sum = a + b; // Sum of the two numbers\n    std::cout << \"The sum of \" << a << \" and \" << b << \" is \" << sum << std::endl; // Print the result\n    return 0;\n}"
+        "code": "// This program calculates the sum of two numbers and prints the result\n#include <iostream>\nusing namespace std;\n\nint main() {\n    int a = 1; // First number\n    int b = 2; // Second number\n    int sum = a + b; // Sum of the two numbers\n    cout << \"The sum of \" << a << \" and \" << b << \" is \" << sum << endl; // Print the result\n    return 0;\n}"
     },
     {
         "id": 3,
         "language": "cpp",
         "title": "Factorial using Recursion",
-        "code": "// This function returns the factorial of a given number using recursion\n#include <iostream>\n\nint factorial(int n) {\n    if (n == 1) {\n        return 1;\n    } else {\n        return n * factorial(n - 1);\n    }\n}\n\nint main() {\n    int number = 5;\n    std::cout << \"The factorial of \" << number << \" is \" << factorial(number) << std::endl;\n    return 0;\n}"
+        "code": "// This function returns the factorial of a given number using recursion\n#include <iostream>\nusing namespace std;\n\nint factorial(int n) {\n    if (n == 1) {\n        return 1;\n    } else {\n        return n * factorial(n - 1);\n    }\n}\n\nint main() {\n    int number = 5;\n    cout << \"The factorial of \" << number << \" is \" << factorial(number) << endl;\n    return 0;\n}"
     },
     {
         "id": 4,
         "language": "cpp",
         "title": "Average of Three Numbers",
-        "code": "// This program calculates the average of three numbers\n#include <iostream>\n\nint main() {\n    float num1 = 5.5, num2 = 10.5, num3 = 20.0;\n    float average = (num1 + num2 + num3) / 3;\n    std::cout << \"The average of \" << num1 << \", \" << num2 << \", and \" << num3 << \" is \" << average << std::endl;\n    return 0;\n}"
+        "code": "// This program calculates the average of three numbers\n#include <iostream>\nusing namespace std;\n\nint main() {\n    float num1 = 5.5, num2 = 10.5, num3 = 20.0;\n    float average = (num1 + num2 + num3) / 3;\n    cout << \"The average of \" << num1 << \", \" << num2 << \", and \" << num3 << \" is \" << average << endl;\n    return 0;\n}"
     },
     {
         "id": 5,
         "language": "cpp",
         "title": "Check Even or Odd",
-        "code": "// This program checks whether a number is even or odd\n#include <iostream>\n\nint main() {\n    int num = 7;\n    if (num % 2 == 0) {\n        std::cout << num << \" is even\" << std::endl;\n    } else {\n        std::cout << num << \" is odd\" << std::endl;\n    }\n    return 0;\n}"
+        "code": "// This program checks whether a number is even or odd\n#include <iostream>\nusing namespace std;\n\nint main() {\n    int num = 7;\n    if (num % 2 == 0) {\n        cout << num << \" is even\" << endl;\n    } else {\n        cout << num << \" is odd\" << endl;\n    }\n    return 0;\n}"
     },
     {
         "id": 6,
         "language": "cpp",
         "title": "Simple Calculator",
-        "code": "// This program implements a simple calculator\n#include <iostream>\n\nint main() {\n    char op;\n    double num1, num2;\n    std::cout << \"Enter an operator (+, -, *, /): \";\n    std::cin >> op;\n    std::cout << \"Enter two operands: \";\n    std::cin >> num1 >> num2;\n\n    switch(op) {\n        case '+':\n            std::cout << num1 << \" + \" << num2 << \" = \" << num1 + num2 << std::endl;\n            break;\n        case '-':\n            std::cout << num1 << \" - \" << num2 << \" = \" << num1 - num2 << std::endl;\n            break;\n        case '*':\n            std::cout << num1 << \" * \" << num2 << \" = \" << num1 * num2 << std::endl;\n            break;\n        case '/':\n            if (num2 != 0.0)\n                std::cout << num1 << \" / \" << num2 << \" = \" << num1 / num2 << std::endl;\n            else\n                std::cout << \"Division by zero is not allowed.\" << std::endl;\n            break;\n        default:\n            std::cout << \"Invalid operator.\" << std::endl;\n            break;\n    }\n\n    return 0;\n}"
+        "code": "// This program implements a simple calculator\n#include <iostream>\nusing namespace std;\n\nint main() {\n    char operator_ = '+';\n    double num1 = 10;\n    double num2 = 5;\n\n    switch (operator_) {\n        case '+':\n            cout << num1 << \" + \" << num2 << \" = \" << (num1 + num2) << endl;\n            break;\n        case '-':\n            cout << num1 << \" - \" << num2 << \" = \" << (num1 - num2) << endl;\n            break;\n        case '*':\n            cout << num1 << \" * \" << num2 << \" = \" << (num1 * num2) << endl;\n            break;\n        case '/':\n            if (num2 != 0)\n                cout << num1 << \" / \" << num2 << \" = \" << (num1 / num2) << endl;\n            else\n                cout << \"Division by zero is not allowed.\" << endl;\n            break;\n        default:\n            cout << \"Invalid operator.\" << endl;\n            break;\n    }\n    return 0;\n}"
     },
     {
         "id": 7,
         "language": "cpp",
         "title": "Array Initialization and Display",
-        "code": "// This program initializes an array and displays its elements\n#include <iostream>\n\nint main() {\n    int arr[5] = {1, 2, 3, 4, 5};\n    for(int i = 0; i < 5; i++) {\n        std::cout << \"Element at index \" << i << \": \" << arr[i] << std::endl;\n    }\n    return 0;\n}"
+        "code": "// This program initializes an array and displays its elements\n#include <iostream>\nusing namespace std;\n\nint main() {\n    int arr[] = {1, 2, 3, 4, 5};\n    for (int i = 0; i < sizeof(arr)/sizeof(arr[0]); i++) {\n        cout << \"Element at index \" << i << \": \" << arr[i] << endl;\n    }\n    return 0;\n}"
     },
     {
         "id": 8,
         "language": "cpp",
         "title": "Reverse a String",
-        "code": "// This program reverses a given string\n#include <iostream>\n#include <string>\n\nint main() {\n    std::string str;\n    std::cout << \"Enter a string: \";\n    std::getline(std::cin, str);\n    int len = str.length();\n    for(int i = 0; i < len / 2; i++) {\n        std::swap(str[i], str[len - i - 1]);\n    }\n    std::cout << \"Reversed string: \" << str << std::endl;\n    return 0;\n}"
+        "code": "// This program reverses a given string\n#include <iostream>\n#include <algorithm>\nusing namespace std;\n\nint main() {\n    string str = \"Hello World\";\n    reverse(str.begin(), str.end());\n    cout << \"Reversed string: \" << str << endl;\n    return 0;\n}"
     },
     {
         "id": 9,
         "language": "cpp",
         "title": "Find Largest Element in Array",
-        "code": "// This program finds the largest element in an array\n#include <iostream>\n\nint main() {\n    int arr[] = {10, 20, 30, 40, 50};\n    int max = arr[0];\n    for(int i = 1; i < 5; i++) {\n        if(arr[i] > max) {\n            max = arr[i];\n        }\n    }\n    std::cout << \"The largest element in the array is \" << max << std::endl;\n    return 0;\n}"
+        "code": "// This program finds the largest element in an array\n#include <iostream>\nusing namespace std;\n\nint main() {\n    int arr[] = {10, 20, 30, 40, 50};\n    int max = arr[0];\n    for (int i = 1; i < sizeof(arr)/sizeof(arr[0]); i++) {\n        if (arr[i] > max) {\n            max = arr[i];\n        }\n    }\n    cout << \"The largest element in the array is \" << max << endl;\n    return 0;\n}"
     },
     {
         "id": 10,
         "language": "cpp",
         "title": "Swap Two Numbers",
-        "code": "// This program swaps two numbers using a temporary variable\n#include <iostream>\n\nint main() {\n    int a = 5, b = 10, temp;\n    std::cout << \"Before swapping: a = \" << a << \", b = \" << b << std::endl;\n    temp = a;\n    a = b;\n    b = temp;\n    std::cout << \"After swapping: a = \" << a << \", b = \" << b << std::endl;\n    return 0;\n}"
+        "code": "// This program swaps two numbers using a temporary variable\n#include <iostream>\nusing namespace std;\n\nint main() {\n    int a = 5, b = 10, temp;\n    cout << \"Before swapping: a = \" << a << \", b = \" << b << endl;\n    temp = a;\n    a = b;\n    b = temp;\n    cout << \"After swapping: a = \" << a << \", b = \" << b << endl;\n    return 0;\n}"
+    },
+    {
+        "id": 11,
+        "language": "cpp",
+        "title": "Check Prime Number",
+        "code": "// This program checks whether a number is prime\n#include <iostream>\nusing namespace std;\n\nint main() {\n    int num = 29;\n    bool isPrime = true;\n    for (int i = 2; i <= num / 2; ++i) {\n        if (num % i == 0) {\n            isPrime = false;\n            break;\n        }\n    }\n    if (isPrime)\n        cout << num << \" is a prime number\" << endl;\n    else\n        cout << num << \" is not a prime number\" << endl;\n    return 0;\n}"
+    },
+    {
+        "id": 12,
+        "language": "cpp",
+        "title": "Fibonacci Sequence",
+        "code": "// This program prints the Fibonacci sequence up to a specified number of terms\n#include <iostream>\nusing namespace std;\n\nint main() {\n    int n = 10, t1 = 0, t2 = 1;\n    cout << \"First \" << n << \" terms: \";\n    for (int i = 1; i <= n; ++i) {\n        cout << t1 << \" \";\n        int sum = t1 + t2;\n        t1 = t2;\n        t2 = sum;\n    }\n    return 0;\n}"
+    },
+    {
+        "id": 13,
+        "language": "cpp",
+        "title": "Palindrome Check",
+        "code": "// This program checks if a given string is a palindrome\n#include <iostream>\n#include <algorithm>\nusing namespace std;\n\nint main() {\n    string str = \"radar\";\n    string reversedStr = str;\n    reverse(reversedStr.begin(), reversedStr.end());\n    if (str == reversedStr) {\n        cout << str << \" is a palindrome\" << endl;\n    } else {\n        cout << str << \" is not a palindrome\" << endl;\n    }\n    return 0;\n}"
+    },
+    {
+        "id": 14,
+        "language": "cpp",
+        "title": "Bubble Sort",
+        "code": "// This program implements the bubble sort algorithm\n#include <iostream>\nusing namespace std;\n\nvoid bubbleSort(int arr[], int n) {\n    for (int i = 0; i < n - 1; i++) {\n        for (int j = 0; j < n - i - 1; j++) {\n            if (arr[j] > arr[j + 1]) {\n                int temp = arr[j];\n                arr[j] = arr[j + 1];\n                arr[j + 1] = temp;\n            }\n        }\n    }\n}\n\nint main() {\n    int arr[] = {5, 1, 4, 2, 8};\n    int n = sizeof(arr)/sizeof(arr[0]);\n    bubbleSort(arr, n);\n    cout << \"Sorted array: \";\n    for (int i = 0; i < n; i++) {\n        cout << arr[i] << \" \";\n    }\n    return 0;\n}"
+    },
+    {
+        "id": 15,
+        "language": "cpp",
+        "title": "Convert Celsius to Fahrenheit",
+        "code": "// This program converts a temperature from Celsius to Fahrenheit\n#include <iostream>\nusing namespace std;\n\nint main() {\n    float celsius = 37.0f;\n    float fahrenheit = (celsius * 9/5) + 32;\n    cout << \"Temperature in Fahrenheit: \" << fahrenheit << endl;\n    return 0;\n}"
     }
 ]
