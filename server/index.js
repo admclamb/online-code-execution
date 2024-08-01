@@ -14,8 +14,14 @@ const winston = require('winston');
 const app = express();
 const PORT = process.env.PORT || 8000; // Set the port from environment variables or default to 8000
 const PISTON_API_URL = process.env.PISTON_API_URL; // URL of the Piston API for code execution
+const CLIENT_ORIGIN_URL = process.env.CLIENT_ORIGIN_URL; // Client origin URL for CORS
 
-// Configure Winston logger for logging errors and information
+/**
+ * Configure Winston logger for logging errors and information
+ * - Logs errors to error.log
+ * - Logs all messages to combined.log
+ * - Logs to console in non-production environments
+ */
 const logger = winston.createLogger({
     level: 'info',
     format: winston.format.combine(
@@ -28,14 +34,18 @@ const logger = winston.createLogger({
     ]
 });
 
-// If not in production, also log to the console
+// Add console transport in non-production environments
 if (process.env.NODE_ENV !== 'production') {
     logger.add(new winston.transports.Console({
         format: winston.format.simple()
     }));
 }
 
-// Apply security headers using Helmet.js
+/**
+ * Apply security headers using Helmet.js
+ * - Sets various HTTP headers to secure the app
+ * - Configures Content Security Policy (CSP) and Referrer Policy
+ */
 app.use(helmet({
     contentSecurityPolicy: {
         directives: {
@@ -48,7 +58,11 @@ app.use(helmet({
     referrerPolicy: { policy: 'no-referrer' } // Do not send the Referer header
 }));
 
-// Rate limiter middleware to limit the number of requests per IP
+/**
+ * Rate limiter middleware to limit the number of requests per IP
+ * - Limits each IP to 100 requests per 15 minutes
+ * - Sends a message when rate limit is exceeded
+ */
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
     max: 100, // Limit each IP to 100 requests per windowMs
@@ -56,9 +70,14 @@ const limiter = rateLimit({
 });
 app.use(limiter);
 
-// Enhanced CORS policy to restrict access to specific origins
+/**
+ * Enhanced CORS policy to restrict access to specific origins
+ * - Only allows requests from the client origin URL
+ * - Allows GET and POST methods
+ * - Allows specific headers: Content-Type and Authorization
+ */
 const corsOptions = {
-    origin: 'http://localhost:5173', // Allow requests only from this origin
+    origin: CLIENT_ORIGIN_URL, // Allow only the client origin URL
     methods: 'GET,POST', // Allow only GET and POST methods
     allowedHeaders: 'Content-Type,Authorization', // Allow only specific headers
     optionsSuccessStatus: 200 // Some legacy browsers choke on 204
@@ -68,13 +87,19 @@ app.use(cors(corsOptions));
 // Middleware to parse incoming JSON requests
 app.use(express.json());
 
-// Route to handle code compilation requests
+/**
+ * Route to handle code compilation requests
+ * - Validates inputs: code (string, non-empty), language (string, non-empty, one of python, c, cpp, java), input (optional string)
+ * - Sends the code to Piston API for execution
+ * - Returns the output or error response
+ */
 app.post('/compile', [
     body('code').isString().notEmpty(), // Validate 'code' field: must be a non-empty string
     body('language').isString().notEmpty().isIn(['python', 'c', 'cpp', 'java']), // Validate 'language' field: must be a non-empty string and one of the specified values
     body('input').optional().isString() // Validate 'input' field: optional, must be a string if provided
 ], async (req, res) => {
-    const errors = validationResult(req); // Check for validation errors
+    // Check for validation errors
+    const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() }); // Return validation errors if any
     }
@@ -104,8 +129,9 @@ app.post('/compile', [
         });
         res.send({ output: response.data.run.output }); // Send the output back to the client
     } catch (error) {
-        logger.error('Error during code compilation:', { message: error.message, stack: error.stack }); // Log the error
-        res.status(500).send({ error: 'Code execution failed', details: error.message }); // Send error response to the client
+        // Log the error and send error response to the client
+        logger.error('Error during code compilation:', { message: error.message, stack: error.stack });
+        res.status(500).send({ error: 'Code execution failed', details: error.message });
     }
 });
 
