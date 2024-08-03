@@ -1,8 +1,13 @@
 .App {
   font-family: Arial, sans-serif;
-  padding: 20px;
-  max-width: 800px;
-  margin: 0 auto;
+  display: flex;
+  justify-items: center;
+  width: 100%;
+}
+
+.app-container {
+  margin-inline: auto;
+  max-width: 1200px;
 }
 
 h1 {
@@ -19,6 +24,13 @@ label {
   margin-bottom: 5px;
 }
 
+hr{
+  color: lightgray;
+}
+
+.code {
+  min-height: 200px;
+}
 select, textarea {
   width: 100%;
   padding: 10px;
