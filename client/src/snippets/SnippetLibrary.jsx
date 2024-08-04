@@ -3,6 +3,7 @@ import pythonSnippets from './python.json';
 import javaSnippets from './java.json';
 import cSnippets from './c.json';
 import cppSnippets from './cpp.json';
+import javascriptSnippets from './javascript.json'; // Import JavaScript snippets
 
 const SnippetLibrary = ({ setUserCode, setUserLang }) => {
     const [selectedLanguage, setSelectedLanguage] = useState('');
@@ -14,7 +15,8 @@ const SnippetLibrary = ({ setUserCode, setUserLang }) => {
             python: pythonSnippets,
             java: javaSnippets,
             c: cSnippets,
-            cpp: cppSnippets
+            cpp: cppSnippets,
+            javascript: javascriptSnippets // Add JavaScript to language map
         };
 
         const selectedSnippets = langMap[language] || [];
@@ -43,7 +45,7 @@ const SnippetLibrary = ({ setUserCode, setUserLang }) => {
         <div className="snippet-library">
             <h2>Code Snippet Library</h2>
             <div className="form-group">
-                <label>Select Snippet Language:</label>
+                <label>Select Language:</label>
                 <select onChange={(e) => {
                     const lang = e.target.value;
                     setSelectedLanguage(lang);
@@ -55,6 +57,7 @@ const SnippetLibrary = ({ setUserCode, setUserLang }) => {
                     <option value="java">Java</option>
                     <option value="c">C</option>
                     <option value="cpp">C++</option>
+                    <option value="javascript">JavaScript</option> {/* Add JavaScript option */}
                 </select>
             </div>
             <div className="form-group">
@@ -72,7 +75,6 @@ const SnippetLibrary = ({ setUserCode, setUserLang }) => {
                     ))}
                 </select>
             </div>
-            <hr />
         </div>
     );
 };

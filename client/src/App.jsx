@@ -6,6 +6,7 @@ import { monokai } from '@uiw/codemirror-theme-monokai';
 import { javaLanguage } from '@codemirror/lang-java';
 import { pythonLanguage } from '@codemirror/lang-python';
 import { cppLanguage } from '@codemirror/lang-cpp';
+import { javascriptLanguage } from '@codemirror/lang-javascript'; // Import JavaScript language support
 import SnippetLibrary from './snippets/SnippetLibrary';
 import './App.css';
 
@@ -13,7 +14,8 @@ const languages = [
     { value: 'python', label: 'Python', extension: pythonLanguage },
     { value: 'c', label: 'C', extension: cppLanguage },
     { value: 'cpp', label: 'C++', extension: cppLanguage },
-    { value: 'java', label: 'Java', extension: javaLanguage }
+    { value: 'java', label: 'Java', extension: javaLanguage },
+    { value: 'javascript', label: 'JavaScript', extension: javascriptLanguage } // Add JavaScript language support
 ];
 
 const App = () => {

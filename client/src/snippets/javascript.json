@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1,
+        "language": "javascript",
+        "title": "Hello World",
+        "code": "// This is a simple JavaScript program to print 'Hello, World!'\nconsole.log('Hello, World!');"
+    },
+    {
+        "id": 2,
+        "language": "javascript",
+        "title": "Sum of Two Numbers",
+        "code": "// This program calculates the sum of two numbers and prints the result\nconst a = 1; // First number\nconst b = 2; // Second number\nconst sum = a + b; // Sum of the two numbers\nconsole.log(`The sum of ${a} and ${b} is ${sum}`);"
+    },
+    {
+        "id": 3,
+        "language": "javascript",
+        "title": "Factorial using Recursion",
+        "code": "// This function returns the factorial of a given number using recursion\nfunction factorial(n) {\n    if (n === 1) {\n        return 1;\n    } else {\n        return n * factorial(n - 1);\n    }\n}\n\nconst number = 5;\nconsole.log(`The factorial of ${number} is ${factorial(number)}`);"
+    },
+    {
+        "id": 4,
+        "language": "javascript",
+        "title": "Average of Three Numbers",
+        "code": "// This program calculates the average of three numbers\nconst num1 = 5.5;\nconst num2 = 10.5;\nconst num3 = 20.0;\nconst average = (num1 + num2 + num3) / 3;\nconsole.log(`The average of ${num1}, ${num2}, and ${num3} is ${average}`);"
+    },
+    {
+        "id": 5,
+        "language": "javascript",
+        "title": "Check Even or Odd",
+        "code": "// This program checks whether a number is even or odd\nconst num = 7;\nif (num % 2 === 0) {\n    console.log(`${num} is even`);\n} else {\n    console.log(`${num} is odd`);\n}"
+    },
+    {
+        "id": 6,
+        "language": "javascript",
+        "title": "Simple Calculator",
+        "code": "// This program implements a simple calculator\nconst operator = '+';\nconst num1 = 10;\nconst num2 = 5;\n\nswitch (operator) {\n    case '+':\n        console.log(`${num1} + ${num2} = ${num1 + num2}`);\n        break;\n    case '-':\n        console.log(`${num1} - ${num2} = ${num1 - num2}`);\n        break;\n    case '*':\n        console.log(`${num1} * ${num2} = ${num1 * num2}`);\n        break;\n    case '/':\n        if (num2 !== 0)\n            console.log(`${num1} / ${num2} = ${num1 / num2}`);\n        else\n            console.log('Division by zero is not allowed.');\n        break;\n    default:\n        console.log('Invalid operator.');\n        break;\n}"
+    },
+    {
+        "id": 7,
+        "language": "javascript",
+        "title": "Array Initialization and Display",
+        "code": "// This program initializes an array and displays its elements\nconst arr = [1, 2, 3, 4, 5];\nfor (let i = 0; i < arr.length; i++) {\n    console.log(`Element at index ${i}: ${arr[i]}`);\n}"
+    },
+    {
+        "id": 8,
+        "language": "javascript",
+        "title": "Reverse a String",
+        "code": "// This program reverses a given string\nconst str = 'Hello World';\nconst reversedStr = str.split('').reverse().join('');\nconsole.log(`Reversed string: ${reversedStr}`);"
+    },
+    {
+        "id": 9,
+        "language": "javascript",
+        "title": "Find Largest Element in Array",
+        "code": "// This program finds the largest element in an array\nconst arr = [10, 20, 30, 40, 50];\nconst max = Math.max(...arr);\nconsole.log(`The largest element in the array is ${max}`);"
+    },
+    {
+        "id": 10,
+        "language": "javascript",
+        "title": "Swap Two Numbers",
+        "code": "// This program swaps two numbers using a temporary variable\nlet a = 5;\nlet b = 10;\nconsole.log(`Before swapping: a = ${a}, b = ${b}`);\nconst temp = a;\na = b;\nb = temp;\nconsole.log(`After swapping: a = ${a}, b = ${b}`);"
+    },
+    {
+        "id": 11,
+        "language": "javascript",
+        "title": "Check Prime Number",
+        "code": "// This program checks whether a number is prime\nconst num = 29;\nlet isPrime = true;\nfor (let i = 2; i <= num / 2; ++i) {\n    if (num % i === 0) {\n        isPrime = false;\n        break;\n    }\n}\nif (isPrime)\n    console.log(`${num} is a prime number`);\nelse\n    console.log(`${num} is not a prime number`);"
+    },
+    {
+        "id": 12,
+        "language": "javascript",
+        "title": "Fibonacci Sequence",
+        "code": "// This program prints the Fibonacci sequence up to a specified number of terms\nconst n = 10;\nlet t1 = 0, t2 = 1;\nconsole.log(`First ${n} terms: `);\nfor (let i = 1; i <= n; ++i) {\n    console.log(t1);\n    const sum = t1 + t2;\n    t1 = t2;\n    t2 = sum;\n}"
+    },
+    {
+        "id": 13,
+        "language": "javascript",
+        "title": "Palindrome Check",
+        "code": "// This program checks if a given string is a palindrome\nconst str = 'radar';\nconst reversedStr = str.split('').reverse().join('');\nif (str === reversedStr) {\n    console.log(`${str} is a palindrome`);\n} else {\n    console.log(`${str} is not a palindrome`);\n}"
+    },
+    {
+        "id": 14,
+        "language": "javascript",
+        "title": "Bubble Sort",
+        "code": "// This program implements the bubble sort algorithm\nconst bubbleSort = (arr) => {\n    const n = arr.length;\n    for (let i = 0; i < n - 1; i++) {\n        for (let j = 0; j < n - i - 1; j++) {\n            if (arr[j] > arr[j + 1]) {\n                const temp = arr[j];\n                arr[j] = arr[j + 1];\n                arr[j + 1] = temp;\n            }\n        }\n    }\n};\n\nconst arr = [5, 1, 4, 2, 8];\nbubbleSort(arr);\nconsole.log('Sorted array:');\nconsole.log(arr);"
+    },
+    {
+        "id": 15,
+        "language": "javascript",
+        "title": "Convert Celsius to Fahrenheit",
+        "code": "// This program converts a temperature from Celsius to Fahrenheit\nconst celsius = 37.0;\nconst fahrenheit = (celsius * 9/5) + 32;\nconsole.log(`Temperature in Fahrenheit: ${fahrenheit}`);"
+    }
+]
