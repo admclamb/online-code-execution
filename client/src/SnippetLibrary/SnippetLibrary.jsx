@@ -1,14 +1,17 @@
+// src/SnippetLibrary/SnippetLibrary.jsx
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import pythonSnippets from './python.json';
 import javaSnippets from './java.json';
 import cSnippets from './c.json';
 import cppSnippets from './cpp.json';
-import javascriptSnippets from './javascript.json'; // Import JavaScript snippets
+import javascriptSnippets from './javascript.json';
 
 const SnippetLibrary = ({ setUserCode, setUserLang }) => {
     const [selectedLanguage, setSelectedLanguage] = useState('');
     const [snippets, setSnippets] = useState([]);
     const [selectedSnippet, setSelectedSnippet] = useState('');
+    const navigate = useNavigate();
 
     const loadSnippets = (language) => {
         const langMap = {
@@ -16,16 +19,16 @@ const SnippetLibrary = ({ setUserCode, setUserLang }) => {
             java: javaSnippets,
             c: cSnippets,
             cpp: cppSnippets,
-            javascript: javascriptSnippets // Add JavaScript to language map
+            javascript: javascriptSnippets
         };
 
         const selectedSnippets = langMap[language] || [];
-        console.log("Loaded snippets:", selectedSnippets); // Debugging line
+        console.log("Loaded snippets:", selectedSnippets);
         if (Array.isArray(selectedSnippets)) {
             setSnippets(selectedSnippets);
         } else {
             console.error('Snippets data is not an array:', selectedSnippets);
-            setSnippets([]); // Reset to an empty array if data is not valid
+            setSnippets([]);
         }
     };
 
@@ -39,6 +42,7 @@ const SnippetLibrary = ({ setUserCode, setUserLang }) => {
         console.log("Snippet selected:", snippet);
         setUserCode(snippet.code);
         setUserLang(snippet.language);
+        navigate('/compiler');
     };
 
     return (
@@ -50,14 +54,14 @@ const SnippetLibrary = ({ setUserCode, setUserLang }) => {
                     const lang = e.target.value;
                     setSelectedLanguage(lang);
                     loadSnippets(lang);
-                    setSelectedSnippet(''); // Reset selected snippet when language changes
+                    setSelectedSnippet('');
                 }} value={selectedLanguage}>
                     <option value="">Select Language</option>
                     <option value="python">Python</option>
                     <option value="java">Java</option>
                     <option value="c">C</option>
                     <option value="cpp">C++</option>
-                    <option value="javascript">JavaScript</option> {/* Add JavaScript option */}
+                    <option value="javascript">JavaScript</option>
                 </select>
             </div>
             <div className="form-group">
