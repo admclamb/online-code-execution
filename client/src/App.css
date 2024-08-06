@@ -1,13 +1,84 @@
-.App {
+/* Define CSS variables for themes */
+:root {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --button-bg-color: #28a745; /* Green background */
+  --button-text-color: #ffffff; /* White text */
+  --button-bg-color-disabled: #ccc; /* Light gray for disabled button */
+  --output-bg-color: #f5f5f5;
+  --output-text-color: #000000;
+}
+
+[data-theme="night"] {
+  --background-color: #2e2e2e;
+  --text-color: #ffffff;
+  --button-bg-color: #28a745; /* Green background */
+  --button-text-color: #ffffff; /* White text */
+  --button-bg-color-disabled: #555; /* Dark gray for disabled button */
+  --output-bg-color: #1c1c1c;
+  --output-text-color: #ffffff;
+}
+
+[data-theme="colorblind"] {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --button-bg-color: #ffc107; /* Yellow background */
+  --button-text-color: #000000; /* Black text */
+  --button-bg-color-disabled: #e0e0e0; /* Light gray for disabled button */
+  --output-bg-color: #e0e0e0;
+  --output-text-color: #000000;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
   font-family: Arial, sans-serif;
+}
+
+button {
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+button:disabled {
+  background-color: var(--button-bg-color-disabled);
+  color: var(--button-text-color);
+}
+
+textarea[readonly] {
+  background-color: var(--output-bg-color);
+  color: var(--output-text-color);
+}
+
+.App {
   display: flex;
-  justify-items: center;
-  width: 100%;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.navbar {
+  background-color: var(--background-color);
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  flex-grow: 1;
 }
 
 .app-container {
   margin-inline: auto;
   max-width: 1200px;
+  width: 100%;
 }
 
 h1 {
@@ -24,41 +95,32 @@ label {
   margin-bottom: 5px;
 }
 
-hr{
-  color: lightgray;
-}
-
-.code {
-  min-height: 200px;
-}
 select, textarea {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #12d31c;
   border-radius: 4px;
   box-sizing: border-box;
 }
 
-button {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  background-color: #28a745;
-  color: red;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:disabled {
-  background-color: #ccc;
+.button-timer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .output {
   margin-top: 20px;
+  position: relative;
 }
 
-textarea[readonly] {
-  background-color: #f5f5f5;
+.timer {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 5px 10px;
+  border-radius: 4px;
 }

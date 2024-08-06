@@ -1,0 +1,13 @@
+.theme-switcher {
+    margin-bottom: 20px;
+}
+
+.theme-switcher label {
+    margin-right: 10px;
+}
+
+.theme-switcher select {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
