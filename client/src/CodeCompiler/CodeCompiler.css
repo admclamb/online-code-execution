@@ -1,69 +1,71 @@
-/* CodeCompiler.css */
 .App {
     font-family: Arial, sans-serif;
     display: flex;
     justify-items: center;
     width: 100%;
-}
-
-.app-container {
+  }
+  
+  .app-container {
     margin-inline: auto;
     max-width: 1200px;
     position: relative;
-}
-
-h1 {
+  }
+  
+  h1 {
     text-align: center;
     margin-bottom: 20px;
-}
-
-.form-group {
+  }
+  
+  .form-group {
     margin-bottom: 15px;
-}
-
-label {
+  }
+  
+  label {
     display: block;
     margin-bottom: 5px;
-}
-
-select, textarea {
+  }
+  
+  select, textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-}
-
-.button-timer-container {
+  }
+  
+  .button-timer-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-button {
+  }
+  
+  button {
     padding: 10px 20px;
-    background-color: #28a745;
-    color: white;
+    background-color: var(--button-bg-color); /* Ensure button uses the correct background color */
+    color: var(--button-text-color); /* Ensure button uses the correct text color */
     border: none;
     border-radius: 4px;
     cursor: pointer;
-}
-
-button:disabled {
-    background-color: #ccc;
-}
-
-.output {
+    font-weight: bold;
+  }
+  
+  button:disabled {
+    background-color: var(--button-bg-color-disabled);
+    color: var(--button-text-color);
+  }
+  
+  .output {
     margin-top: 20px;
     position: relative;
-}
-
-textarea[readonly] {
-    background-color: #f5f5f5;
-}
-
-.timer {
+  }
+  
+  textarea[readonly] {
+    background-color: var(--output-bg-color);
+    color: var(--output-text-color);
+  }
+  
+  .timer {
     position: absolute;
     bottom: 10px;
     right: 10px;
@@ -71,4 +73,5 @@ textarea[readonly] {
     background: rgba(255, 255, 255, 0.8);
     padding: 5px 10px;
     border-radius: 4px;
-}
+  }
+  

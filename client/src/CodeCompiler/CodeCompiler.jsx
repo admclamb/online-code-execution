@@ -91,7 +91,7 @@ const CodeCompiler = ({ userCode, userLang }) => {
                     />
                 </div>
                 <div className="button-timer-container">
-                    <button onClick={compile} disabled={loading}>
+                    <button className="run-button" onClick={compile} disabled={loading}>
                         {loading ? 'Running...' : 'Run'}
                     </button>
                 </div>
