@@ -89,13 +89,13 @@ app.use(express.json());
 
 /**
  * Route to handle code compilation requests
- * - Validates inputs: code (string, non-empty), language (string, non-empty, one of python, c, cpp, java), input (optional string)
+ * - Validates inputs: code (string, non-empty), language (string, non-empty, one of python, c, cpp, java, javascript), input (optional string)
  * - Sends the code to Piston API for execution
  * - Returns the output or error response
  */
 app.post('/compile', [
     body('code').isString().notEmpty(), // Validate 'code' field: must be a non-empty string
-    body('language').isString().notEmpty().isIn(['python', 'c', 'cpp', 'java']), // Validate 'language' field: must be a non-empty string and one of the specified values
+    body('language').isString().notEmpty().isIn(['python', 'c', 'cpp', 'java', 'javascript']), // Validate 'language' field: must be a non-empty string and one of the specified values
     body('input').optional().isString() // Validate 'input' field: optional, must be a string if provided
 ], async (req, res) => {
     // Check for validation errors
@@ -111,7 +111,8 @@ app.post('/compile', [
         python: 'python3',
         c: 'c',
         cpp: 'cpp',
-        java: 'java'
+        java: 'java',
+        javascript: 'javascript' // Add JavaScript mapping
     };
 
     // Create the payload for the Piston API
