@@ -8,12 +8,16 @@ const Navbar = ({ setTheme }) => {
     <nav className="navbar">
       <div className="navbar-left">
         <h1>Online Code Compiler</h1>
-        <Link to="/">Home</Link>
-        <Link to="/compiler">Compiler</Link>
-        <Link to="/snippets">Snippets</Link>
+      </div>
+      <div className="navbar-center">
+        <ThemeSwitcher setTheme={setTheme} />
       </div>
       <div className="navbar-right">
-        <ThemeSwitcher setTheme={setTheme} />
+        <div className="navbar-links">
+          <Link to="/">Home</Link>
+          <Link to="/compiler">Compiler</Link>
+          <Link to="/snippets">Snippets</Link>
+        </div>
       </div>
     </nav>
   );

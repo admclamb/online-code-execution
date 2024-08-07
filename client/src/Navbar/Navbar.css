@@ -14,26 +14,35 @@
 }
 
 .navbar-left {
+  flex: 1;
   display: flex;
   align-items: center;
 }
 
 .navbar-left h1 {
   margin: 0;
-  margin-right: 20px;
   font-size: 1.5em;
   color: var(--text-primary);
 }
 
-.navbar-left a {
-  margin-right: 20px;
-  text-decoration: none;
-  color: var(--text-primary);
+.navbar-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .navbar-right {
+  flex: 1;
   display: flex;
+  justify-content: flex-end;
   align-items: center;
+}
+
+.navbar-right a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: var(--text-primary);
 }
 
 .theme-switcher {
