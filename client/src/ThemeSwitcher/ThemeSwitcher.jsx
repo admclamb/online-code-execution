@@ -2,20 +2,22 @@ import React from 'react';
 import './ThemeSwitcher.css';
 
 const ThemeSwitcher = ({ setTheme }) => {
-    const handleThemeChange = (e) => {
-        setTheme(e.target.value);
-    };
+  const handleThemeChange = (e) => {
+    const theme = e.target.value;
+    document.body.className = theme; // Apply the theme class to the body
+    setTheme(theme);
+  };
 
-    return (
-        <div className="theme-switcher">
-            <label htmlFor="theme">Select Theme:</label>
-            <select id="theme" onChange={handleThemeChange}>
-                <option value="day">Day Mode</option>
-                <option value="night">Night Mode</option>
-                <option value="colorblind">Colorblind Mode</option>
-            </select>
-        </div>
-    );
+  return (
+    <div className="theme-switcher">
+      <label htmlFor="theme-select">Theme:</label>
+      <select id="theme-select" onChange={handleThemeChange}>
+        <option value="">Day</option>
+        <option value="night">Night</option>
+        <option value="colorblind">Colorblind</option>
+      </select>
+    </div>
+  );
 };
 
 export default ThemeSwitcher;

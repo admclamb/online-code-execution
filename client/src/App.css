@@ -1,70 +1,57 @@
-/* Define CSS variables for themes */
 :root {
-  --background-color: #ffffff;
-  --text-color: #000000;
-  --button-bg-color: #28a745; /* Green background */
-  --button-text-color: #ffffff; /* White text */
-  --button-bg-color-disabled: #ccc; /* Light gray for disabled button */
+  --background-color: white;
+  --text-primary: red;
+  --text-secondary: grey;
+  --button-bg-color: #28a745;
+  --button-text-color: #ffffff;
+  --button-bg-color-disabled: #ccc;
   --output-bg-color: #f5f5f5;
   --output-text-color: #000000;
 }
 
-[data-theme="night"] {
-  --background-color: #2e2e2e;
-  --text-color: #ffffff;
-  --button-bg-color: #28a745; /* Green background */
-  --button-text-color: #ffffff; /* White text */
-  --button-bg-color-disabled: #555; /* Dark gray for disabled button */
+body.night {
+  --background-color: black;
+  --text-primary: white;
+  --text-secondary: grey;
+  --button-bg-color: #28a745;
+  --button-text-color: #ffffff;
+  --button-bg-color-disabled: #555;
   --output-bg-color: #1c1c1c;
   --output-text-color: #ffffff;
 }
 
-[data-theme="colorblind"] {
-  --background-color: #ffffff;
-  --text-color: #000000;
-  --button-bg-color: #ffc107; /* Yellow background */
-  --button-text-color: #000000; /* Black text */
-  --button-bg-color-disabled: #e0e0e0; /* Light gray for disabled button */
+body.colorblind {
+  --background-color: white;
+  --text-primary: black;
+  --text-secondary: grey;
+  --button-bg-color: #ffc107;
+  --button-text-color: #000000;
+  --button-bg-color-disabled: #e0e0e0;
   --output-bg-color: #e0e0e0;
   --output-text-color: #000000;
 }
 
-body {
+html, body {
   background-color: var(--background-color);
-  color: var(--text-color);
+  color: var(--text-primary);
   font-family: Arial, sans-serif;
+  height: 100%;
+  margin: 0;
 }
 
-button {
-  background-color: var(--button-bg-color);
-  color: var(--button-text-color);
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  padding: 10px 20px;
-  font-weight: bold;
-}
-
-button:disabled {
-  background-color: var(--button-bg-color-disabled);
-  color: var(--button-text-color);
-}
-
-textarea[readonly] {
-  background-color: var(--output-bg-color);
-  color: var(--output-text-color);
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .App {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-}
-
-.navbar {
-  background-color: var(--background-color);
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  padding-top: 80px; /* Add padding to account for the fixed navbar */
 }
 
 .main-content {
@@ -73,17 +60,27 @@ textarea[readonly] {
   align-items: center;
   padding: 20px;
   flex-grow: 1;
+  width: 100%;
+  background-color: var(--background-color); /* Ensure the main content has the correct background color */
 }
 
 .app-container {
-  margin-inline: auto;
+  margin: 20px;
   max-width: 1200px;
   width: 100%;
+  padding: 20px;
+  background-color: var(--background-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
 h1 {
   text-align: center;
   margin-bottom: 20px;
+}
+
+p {
+  color: var(--text-secondary);
 }
 
 .form-group {
@@ -99,7 +96,7 @@ select, textarea {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
-  border: 1px solid #12d31c;
+  border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
 }
@@ -110,9 +107,33 @@ select, textarea {
   align-items: center;
 }
 
+.run-button {
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.run-button:hover {
+  background-color: darken(var(--button-bg-color), 10%);
+}
+
+.run-button:disabled {
+  background-color: var(--button-bg-color-disabled);
+  color: var(--button-text-color);
+}
+
 .output {
   margin-top: 20px;
   position: relative;
+  background-color: var(--output-bg-color);
+  color: var(--output-text-color);
+  padding: 10px;
+  border-radius: 4px;
 }
 
 .timer {
@@ -123,4 +144,51 @@ select, textarea {
   background: rgba(255, 255, 255, 0.8);
   padding: 5px 10px;
   border-radius: 4px;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--background-color);
+  padding: 10px 20px;
+  border-bottom: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-left h1 {
+  margin: 0;
+  margin-right: 20px;
+  font-size: 1.5em;
+  color: var(--text-primary);
+}
+
+.navbar-left a {
+  margin-right: 20px;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.theme-switcher {
+  margin-left: 20px;
+}
+
+.theme-switcher label {
+  margin-right: 10px;
+  color: var(--text-primary);
 }

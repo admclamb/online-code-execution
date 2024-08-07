@@ -4,41 +4,39 @@ import Navbar from './Navbar/Navbar';
 import Home from './Home/Home';
 import CodeCompiler from './CodeCompiler/CodeCompiler';
 import SnippetLibraryPage from './SnippetLibrary/SnippetLibraryPage';
-import ThemeSwitcher from './ThemeSwitcher/ThemeSwitcher';
 import './App.css';
 
 const App = () => {
-    const [theme, setTheme] = useState('day');
-    const [userCode, setUserCode] = useState('');
-    const [userLang, setUserLang] = useState('python');
+  const [theme, setTheme] = useState('day');
+  const [userCode, setUserCode] = useState('');
+  const [userLang, setUserLang] = useState('python');
 
-    useEffect(() => {
-        document.documentElement.setAttribute('data-theme', theme);
-    }, [theme]);
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
 
-    return (
-        <Router>
-            <div className="App">
-                <Navbar />
-                <div className="main-content">
-                    <ThemeSwitcher setTheme={setTheme} />
-                    <div className="app-container">
-                        <Routes>
-                            <Route path="/" element={<Home />} />
-                            <Route 
-                                path="/compiler" 
-                                element={<CodeCompiler userCode={userCode} userLang={userLang} />} 
-                            />
-                            <Route 
-                                path="/snippets" 
-                                element={<SnippetLibraryPage setUserCode={setUserCode} setUserLang={setUserLang} />} 
-                            />
-                        </Routes>
-                    </div>
-                </div>
-            </div>
-        </Router>
-    );
+  return (
+    <Router>
+      <div className="App">
+        <Navbar setTheme={setTheme} />
+        <div className="main-content">
+          <div className="app-container">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route
+                path="/compiler"
+                element={<CodeCompiler userCode={userCode} userLang={userLang} />}
+              />
+              <Route
+                path="/snippets"
+                element={<SnippetLibraryPage setUserCode={setUserCode} setUserLang={setUserLang} />}
+              />
+            </Routes>
+          </div>
+        </div>
+      </div>
+    </Router>
+  );
 };
 
 export default App;

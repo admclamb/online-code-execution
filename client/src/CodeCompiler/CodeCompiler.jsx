@@ -71,7 +71,6 @@ const CodeCompiler = ({ userCode, userLang }) => {
     return (
         <div className="App">
             <div className="app-container">
-                <h1>Online Code Compiler</h1>
                 <div className="form-group">
                     <label>Language:</label>
                     <select onChange={(e) => setLocalLang(e.target.value)} value={localLang}>
