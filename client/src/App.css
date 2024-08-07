@@ -1,7 +1,8 @@
-/* Define CSS variables for themes */
+/* Default Theme (Day Mode) */
 :root {
-  --background-color: #ffffff;
-  --text-color: #000000;
+  --background-color: white;
+  --text-primary: red;
+  --text-secondary: grey;
   --button-bg-color: #28a745; /* Green background */
   --button-text-color: #ffffff; /* White text */
   --button-bg-color-disabled: #ccc; /* Light gray for disabled button */
@@ -9,9 +10,11 @@
   --output-text-color: #000000;
 }
 
-[data-theme="night"] {
-  --background-color: #2e2e2e;
-  --text-color: #ffffff;
+/* Night Mode Theme */
+body.night {
+  --background-color: black;
+  --text-primary: white;
+  --text-secondary: grey;
   --button-bg-color: #28a745; /* Green background */
   --button-text-color: #ffffff; /* White text */
   --button-bg-color-disabled: #555; /* Dark gray for disabled button */
@@ -19,9 +22,11 @@
   --output-text-color: #ffffff;
 }
 
-[data-theme="colorblind"] {
-  --background-color: #ffffff;
-  --text-color: #000000;
+/* Colorblind Mode Theme */
+body.colorblind {
+  --background-color: white;
+  --text-primary: black;
+  --text-secondary: grey;
   --button-bg-color: #ffc107; /* Yellow background */
   --button-text-color: #000000; /* Black text */
   --button-bg-color-disabled: #e0e0e0; /* Light gray for disabled button */
@@ -29,10 +34,18 @@
   --output-text-color: #000000;
 }
 
-body {
+html, body {
   background-color: var(--background-color);
-  color: var(--text-color);
+  color: var(--text-primary);
   font-family: Arial, sans-serif;
+  height: 100%; /* Ensure html and body take full height */
+  margin: 0; /* Remove default margin */
+}
+
+#root {
+  height: 100%; /* Ensure root element takes full height */
+  display: flex;
+  flex-direction: column;
 }
 
 button {
@@ -53,12 +66,18 @@ button:disabled {
 textarea[readonly] {
   background-color: var(--output-bg-color);
   color: var(--output-text-color);
+  width: 100%; /* Ensure the textarea takes the full width */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  border-radius: 4px; /* Round the corners */
+  padding: 10px; /* Add padding inside the textarea */
+  border: 1px solid #ccc; /* Add a border */
+  margin-top: 10px; /* Add space above the textarea */
 }
 
 .App {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  flex-grow: 1;
 }
 
 .navbar {
@@ -86,6 +105,10 @@ h1 {
   margin-bottom: 20px;
 }
 
+p {
+  color: var(--text-secondary);
+}
+
 .form-group {
   margin-bottom: 15px;
 }
@@ -99,7 +122,7 @@ select, textarea {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
-  border: 1px solid #12d31c;
+  border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
 }
@@ -110,9 +133,28 @@ select, textarea {
   align-items: center;
 }
 
+.run-button {
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-weight: bold;
+}
+
+.run-button:disabled {
+  background-color: var(--button-bg-color-disabled);
+  color: var(--button-text-color);
+}
+
 .output {
   margin-top: 20px;
   position: relative;
+  background-color: var(--output-bg-color);
+  color: var(--output-text-color);
+  padding: 10px;
+  border-radius: 4px;
 }
 
 .timer {

@@ -13,7 +13,7 @@ const App = () => {
     const [userLang, setUserLang] = useState('python');
 
     useEffect(() => {
-        document.documentElement.setAttribute('data-theme', theme);
+        document.body.className = theme;
     }, [theme]);
 
     return (
