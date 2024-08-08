@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import Axios from "axios";
+import axios from "axios";
 import CodeMirror from "@uiw/react-codemirror";
 import { monokai } from "@uiw/codemirror-theme-monokai";
 import { javaLanguage } from "@codemirror/lang-java";
