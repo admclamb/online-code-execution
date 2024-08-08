@@ -51,7 +51,7 @@ html, body {
   flex-grow: 1;
   justify-content: center;
   align-items: center;
-  padding-top: 80px; /* Add padding to account for the fixed navbar */
+  padding-top: 60px; /* Adjust padding for navbar */
 }
 
 .main-content {
@@ -61,7 +61,7 @@ html, body {
   padding: 20px;
   flex-grow: 1;
   width: 100%;
-  background-color: var(--background-color); /* Ensure the main content has the correct background color */
+  background-color: var(--background-color);
 }
 
 .app-container {
@@ -75,8 +75,9 @@ html, body {
 }
 
 h1 {
-  text-align: center;
-  margin-bottom: 20px;
+  margin: 0;
+  font-size: 1.2em; /* Adjust font size to make the navbar more compact */
+  color: var(--text-primary);
 }
 
 p {
@@ -118,10 +119,6 @@ select, textarea {
   transition: background-color 0.3s ease;
 }
 
-.run-button:hover {
-  background-color: darken(var(--button-bg-color), 10%);
-}
-
 .run-button:disabled {
   background-color: var(--button-bg-color-disabled);
   color: var(--button-text-color);
@@ -155,40 +152,40 @@ select, textarea {
   justify-content: space-between;
   align-items: center;
   background-color: var(--background-color);
-  padding: 10px 20px;
+  padding: 10px 15px; /* Adjust padding for compactness */
   border-bottom: 1px solid #ccc;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 1000;
 }
 
 .navbar-left {
+  flex: 1;
+}
+
+.navbar-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navbar-links {
   display: flex;
   align-items: center;
 }
 
-.navbar-left h1 {
-  margin: 0;
-  margin-right: 20px;
-  font-size: 1.5em;
-  color: var(--text-primary);
-}
-
-.navbar-left a {
-  margin-right: 20px;
+.navbar-links a {
+  margin-left: 15px;
   text-decoration: none;
   color: var(--text-primary);
 }
 
-.navbar-right {
-  display: flex;
-  align-items: center;
-}
-
-.theme-switcher {
-  margin-left: 20px;
-}
-
 .theme-switcher label {
-  margin-right: 10px;
+  margin-right: 5px;
   color: var(--text-primary);
 }
