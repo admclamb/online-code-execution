@@ -11,7 +11,32 @@
 .home-link {
     margin: 10px;
     padding: 10px 20px;
-    text-decoration: none;
+    text-decoration: none;/* Container for the Home component */
+    .home-container {
+        text-align: center; /* Centers the text horizontally within the container */
+        padding: 50px; /* Adds 50 pixels of padding on all sides */
+    }
+    
+    /* Container for the links within the Home component */
+    .home-links {
+        margin-top: 20px; /* Adds 20 pixels of margin to the top of the container */
+    }
+    
+    /* Styling for each individual link in the Home component */
+    .home-link {
+        margin: 10px; /* Adds 10 pixels of margin around each link */
+        padding: 10px 20px; /* Adds 10 pixels of padding on the top/bottom and 20 pixels on the left/right */
+        text-decoration: none; /* Removes the underline from the link */
+        color: white; /* Sets the text color to white */
+        background-color: #28a745; /* Sets the background color to green (#28a745) */
+        border-radius: 5px; /* Rounds the corners of the link by 5 pixels */
+    }
+    
+    /* Hover effect for the links in the Home component */
+    .home-link:hover {
+        background-color: #218838; /* Changes the background color to a darker green (#218838) when hovered */
+    }
+    
     color: white;
     background-color: #28a745;
     border-radius: 5px;

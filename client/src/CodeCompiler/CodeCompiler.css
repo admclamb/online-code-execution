@@ -1,77 +1,88 @@
+/* General styling for the application container */
 .App {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-items: center;
-    width: 100%;
-  }
-  
-  .app-container {
-    margin-inline: auto;
-    max-width: 1200px;
-    position: relative;
-  }
-  
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  select, textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  .button-timer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  button {
-    padding: 10px 20px;
-    background-color: var(--button-bg-color); /* Ensure button uses the correct background color */
-    color: var(--button-text-color); /* Ensure button uses the correct text color */
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  
-  button:disabled {
-    background-color: var(--button-bg-color-disabled);
-    color: var(--button-text-color);
-  }
-  
-  .output {
-    margin-top: 20px;
-    position: relative;
-  }
-  
-  textarea[readonly] {
-    background-color: var(--output-bg-color);
-    color: var(--output-text-color);
-  }
-  
-  .timer {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    font-size: 16px;
-    background: rgba(255, 255, 255, 0.8);
-    padding: 5px 10px;
-    border-radius: 4px;
-  }
-  
+  font-family: Arial, sans-serif; /* Sets a clean and modern font for the app */
+  display: flex; /* Uses flexbox to handle layout */
+  justify-items: center; /* Centers items on the cross axis */
+  width: 100%; /* Ensures the app spans the full width of the viewport */
+}
+
+/* Container for the main content of the app */
+.app-container {
+  margin-inline: auto; /* Centers the container horizontally */
+  max-width: 1200px; /* Maximum width to ensure content doesn't stretch too far on larger screens */
+  position: relative; /* Establishes a positioning context for absolutely positioned children */
+}
+
+/* Styling for main heading elements */
+h1 {
+  text-align: center; /* Centers the text of headings */
+  margin-bottom: 20px; /* Adds spacing below headings */
+}
+
+/* Styling for form groups for better visual grouping */
+.form-group {
+  margin-bottom: 15px; /* Adds space below each form group */
+}
+
+/* Styling for labels to make them more distinct */
+label {
+  display: block; /* Ensures labels take up their own line */
+  margin-bottom: 5px; /* Adds a small space below the label */
+}
+
+/* Unified styling for select elements and textareas */
+select, textarea {
+  width: 100%; /* Makes select boxes and textareas take up the full container width */
+  padding: 10px; /* Adds padding inside the elements for better readability */
+  margin-bottom: 10px; /* Adds space below the elements */
+  border: 1px solid #ccc; /* Adds a subtle border */
+  border-radius: 4px; /* Rounds the corners for a smoother look */
+  box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+}
+
+/* Container for buttons and timers, facilitating layout management */
+.button-timer-container {
+  display: flex; /* Uses flexbox for layout */
+  justify-content: space-between; /* Spaces children out between start and end */
+  align-items: center; /* Aligns items vertically at the center */
+}
+
+/* Styling for buttons */
+button {
+  padding: 10px 20px; /* Adds padding for a larger clickable area */
+  background-color: var(--button-bg-color); /* Uses a CSS variable for background color */
+  color: var(--button-text-color); /* Uses a CSS variable for text color */
+  border: none; /* Removes the default border */
+  border-radius: 4px; /* Rounds the corners */
+  cursor: pointer; /* Changes cursor to pointer to indicate clickability */
+  font-weight: bold; /* Makes the text bold */
+}
+
+/* Styling for disabled buttons to indicate they are not interactive */
+button:disabled {
+  background-color: var(--button-bg-color-disabled); /* Darker background for disabled state */
+  color: var(--button-text-color); /* Ensures text color remains consistent even in disabled state */
+}
+
+/* Styling for the output area */
+.output {
+  margin-top: 20px; /* Adds spacing above the output area */
+  position: relative; /* Used to position the timer absolutely within this container */
+}
+
+/* Styles for readonly textareas displaying output */
+textarea[readonly] {
+  background-color: var(--output-bg-color); /* Background color for the output area */
+  color: var(--output-text-color); /* Text color for the output area */
+}
+
+/* Styling for the timer displayed in the output area */
+.timer {
+  position: absolute; /* Positions the timer within the output container */
+  bottom: 10px; /* Positions the timer 10px from the bottom */
+  right: 10px; /* Positions the timer 10px from the right */
+  font-size: 16px; /* Sets the font size for the timer */
+  background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  padding: 5px 10px; /* Padding inside the timer */
+  border-radius: 4px; /* Rounded corners for the timer */
+}
