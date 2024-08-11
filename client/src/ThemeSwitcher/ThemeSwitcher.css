@@ -1,14 +1,17 @@
+/* Styling for the theme switcher container */
 .theme-switcher {
-    margin-bottom: 20px;
-    text-align: center;
+    margin-bottom: 20px;    /* Adds space below the theme switcher to separate it from content below */
+    text-align: center;     /* Centers the content inside the theme switcher container horizontally */
 }
 
+/* Styling for the label inside the theme switcher */
 .theme-switcher label {
-    margin-right: 10px;
+    margin-right: 10px;     /* Adds space to the right of the label, separating it from the select dropdown */
 }
 
+/* Styling for the select dropdown inside the theme switcher */
 .theme-switcher select {
-    padding: 5px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
+    padding: 5px; /* Adds padding inside the select dropdown for better spacing and readability */
+    border-radius: 4px; /* Rounds the corners of the select dropdown for a smoother appearance */
+    border: 1px solid #ccc; /* Adds a light gray border around the select dropdown */
 }

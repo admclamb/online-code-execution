@@ -1,68 +1,79 @@
+/* Universal selector that applies styles to all elements, including pseudo-elements */
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+  box-sizing: border-box; /* Ensures padding and borders are included in the element's width and height */
+  padding: 0; /* Removes default padding from all elements */
+  margin: 0; /* Removes default margin from all elements */
 }
 
+/* Root styles (base for all themes) */
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; /* Sets the default font family */
+  line-height: 1.5; /* Sets the default line height for text */
+  font-weight: 400; /* Sets the default font weight to normal */
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color-scheme: light dark; /* Indicates the document supports both light and dark color schemes */
+  color: rgba(255, 255, 255, 0.87); /* Sets the default text color to a near-white with slight transparency */
+  background-color: #242424; /* Sets the default background color to a dark gray */
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-synthesis: none; /* Disables font synthesis to prevent altering font weight and style */
+  text-rendering: optimizeLegibility; /* Optimizes text rendering for better legibility */
+  -webkit-font-smoothing: antialiased; /* Smoothens text rendering in WebKit browsers (like Chrome, Safari) */
+  -moz-osx-font-smoothing: grayscale; /* Smoothens text rendering on macOS */
 }
 
+/* Anchor (link) styling */
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  font-weight: 500; /* Sets link text to medium weight */
+  color: #646cff; /* Sets the link color to a blue shade */
+  text-decoration: inherit; /* Inherits the text decoration (like underline) from its parent */
 }
+
 a:hover {
-  color: #535bf2;
+  color: #535bf2; /* Changes link color to a darker blue on hover */
 }
 
+/* Heading level 1 styling */
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 3.2em; /* Sets the font size to 3.2 times the base font size */
+  line-height: 1.1; /* Sets the line height to 1.1 times the font size for compact text */
 }
 
+/* Button styling */
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+  border-radius: 8px; /* Rounds the corners of the button */
+  border: 1px solid transparent; /* Sets a transparent border that changes on hover */
+  padding: 0.6em 1.2em; /* Adds padding inside the button for spacing */
+  font-size: 1em; /* Sets the font size to match the base font size */
+  font-weight: 500; /* Sets the button text to medium weight */
+  font-family: inherit; /* Inherits the font family from its parent */
+  background-color: #1a1a1a; /* Sets the button background color to dark gray */
+  cursor: pointer; /* Changes the cursor to a pointer on hover */
+  transition: border-color 0.25s; /* Smoothly transitions the border color over 0.25 seconds on hover */
 }
+
 button:hover {
-  border-color: #646cff;
+  border-color: #646cff; /* Changes the border color to blue when hovered */
 }
+
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 4px auto -webkit-focus-ring-color; /* Adds a focus outline for accessibility */
 }
 
+/* Media query for users who prefer a light color scheme */
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: #213547; /* Sets the text color to dark gray in light mode */
+    background-color: #ffffff; /* Sets the background color to white in light mode */
   }
+  
   a:hover {
-    color: #747bff;
+    color: #747bff; /* Changes the link hover color to a lighter blue in light mode */
   }
+  
   button {
-    background-color: #f9f9f9;
+    background-color: #f9f9f9; /* Changes the button background color to light gray in light mode */
   }
 }
